@@ -169,7 +169,7 @@ body {
   text-align: center;
 }
 
-/* CERTIFICATES section - Showcase panels */
+/* CERTIFICATES section */
 .certificates-subtitle {
   text-align: center;
   font-size: clamp(28px, 3.5vw, 42px);
@@ -184,135 +184,52 @@ body {
   color: rgba(255,255,255,.65);
   font-size: 15px;
   max-width: 600px;
-  margin: 0 auto 60px;
+  margin: 0 auto 50px;
   line-height: 1.6;
 }
-.certificates-showcase {
+.certificates-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
   max-width: 1100px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
 }
-.cert-showcase-panel {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 20px;
-  overflow: hidden;
-  transition: all .4s ease;
-  position: relative;
+.cert-item {
+  text-align: center;
 }
-.cert-showcase-panel:nth-child(even) {
-  grid-template-columns: 1fr 380px;
-}
-.cert-showcase-panel:nth-child(even) .cert-showcase-visual {
-  order: 2;
-}
-.cert-showcase-panel:nth-child(even) .cert-showcase-body {
-  order: 1;
-}
-.cert-showcase-panel:hover {
-  border-color: rgba(244,197,91,.35);
-  box-shadow: 0 20px 50px rgba(0,0,0,.4);
-  transform: translateY(-4px);
-}
-.cert-showcase-panel::after {
-  content: "";
-  position: absolute;
-  top: 50%; 
-  transform: translateY(-50%);
-  width: 1px;
-  height: 60%;
-  background: linear-gradient(180deg, transparent, rgba(244,197,91,.4), transparent);
-}
-.cert-showcase-panel:nth-child(odd)::after { left: 380px; }
-.cert-showcase-panel:nth-child(even)::after { right: 380px; }
-.cert-showcase-visual {
+.cert-item-img {
   background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  position: relative;
-  overflow: hidden;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.15);
 }
-.cert-showcase-visual::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 70% 30%, rgba(244,197,91,.12), transparent 60%);
-}
-.cert-showcase-visual img {
+.cert-item-img img {
   width: 100%;
   height: auto;
-  max-height: 240px;
+  max-height: 200px;
   object-fit: contain;
-  position: relative;
-  z-index: 1;
-  transition: transform .4s ease;
 }
-.cert-showcase-panel:hover .cert-showcase-visual img {
-  transform: scale(1.04);
-}
-.cert-showcase-body {
-  padding: 40px 44px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.cert-showcase-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-.cert-showcase-icon {
-  width: 52px;
-  height: 52px;
+.cert-item-icon {
+  width: 40px;
+  height: 40px;
   object-fit: contain;
-  flex-shrink: 0;
+  margin-bottom: 10px;
 }
-.cert-showcase-header h4 {
-  margin: 0;
+.cert-item h4 {
+  margin: 0 0 10px;
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: -.02em;
 }
-.cert-showcase-body p {
+.cert-item p {
   margin: 0;
   color: rgba(255,255,255,.72);
-  font-size: 15px;
-  line-height: 1.7;
-  max-width: 440px;
-}
-.cert-showcase-number {
-  position: absolute;
-  font-size: 120px;
-  font-weight: 900;
-  color: rgba(244,197,91,.06);
-  line-height: 1;
-  pointer-events: none;
-  z-index: 0;
-}
-.cert-showcase-panel:nth-child(odd) .cert-showcase-number { right: 30px; bottom: -10px; }
-.cert-showcase-panel:nth-child(even) .cert-showcase-number { left: 30px; bottom: -10px; }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .cert-showcase-panel,
-  .cert-showcase-panel:nth-child(even) {
-    grid-template-columns: 1fr;
-  }
-  .cert-showcase-panel:nth-child(even) .cert-showcase-visual { order: -1; }
-  .cert-showcase-panel:nth-child(even) .cert-showcase-body { order: 0; }
-  .cert-showcase-panel::after,
-  .cert-showcase-panel:nth-child(even)::after { display: none; }
-  .cert-showcase-body { padding: 30px 28px; }
-  .cert-showcase-header h4 { font-size: 20px; }
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Signature dark theme */
@@ -346,7 +263,7 @@ body {
   .hero-recognitions { grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 60px; }
   .hero-recog-logo-wrap { width: 110px; height: 110px; padding: 18px; }
   .hero-recog-label { font-size: 15px; }
-  .certificates-showcase { gap: 24px; }
+  .certificates-row { gap: 20px; }
 }
 @media (max-width: 480px) {
   .hero-recognitions { gap: 12px; }
@@ -771,7 +688,7 @@ body {
   .hero-recog-item { padding: 24px 10px; }
   .hero-recog-logo-wrap img { max-width: 120px; height: 48px; }
   .hero-recog-label { font-size: 14px; }
-  .certificates-showcase { gap: 24px; }
+  .certificates-row { gap: 20px; }
   .recognitions-section--signature { padding: 80px 7vw; }
 }
 }
@@ -787,7 +704,7 @@ body {
   .hero-recognitions { gap: 12px; }
   .hero-recog-logo-wrap { width: 90px; height: 90px; padding: 14px; }
   .hero-recog-label { font-size: 13px; }
-  .certificates-showcase { gap: 20px; }
+  .certificates-row { gap: 20px; }
 }
 </style>
 </head>
@@ -858,51 +775,34 @@ body {
     </div>
   </div>
 
-  <!-- CERTIFICATES: showcase panels -->
+  <!-- CERTIFICATES -->
   <h3 class="certificates-subtitle">Our <span class="accent">Certifications</span></h3>
   <p class="certificates-desc">Globally recognized standards that validate our commitment to quality, security, and process excellence.</p>
 
-  <div class="certificates-showcase">
-    <div class="cert-showcase-panel">
-      <span class="cert-showcase-number">ISO</span>
-      <div class="cert-showcase-visual">
+  <div class="certificates-row">
+    <div class="cert-item">
+      <div class="cert-item-img">
         <img src="assets/recognitions/image5.png" alt="ISO 9001:2015 certificate">
       </div>
-      <div class="cert-showcase-body">
-        <div class="cert-showcase-header">
-          <img class="cert-showcase-icon" src="assets/recognitions/iso-9001.png" alt="ISO 9001">
-          <h4>ISO 9001:2015</h4>
-        </div>
-        <p>Demonstrates a robust Quality Management System focused on consistent service, customer satisfaction, and continual improvement.</p>
-      </div>
+      <img class="cert-item-icon" src="assets/recognitions/iso-9001.png" alt="ISO 9001">
+      <h4>ISO 9001:2015</h4>
+      <p>Demonstrates a robust Quality Management System focused on consistent service, customer satisfaction, and continual improvement.</p>
     </div>
-
-    <div class="cert-showcase-panel">
-      <span class="cert-showcase-number">27001</span>
-      <div class="cert-showcase-visual">
+    <div class="cert-item">
+      <div class="cert-item-img">
         <img src="assets/recognitions/image7.png" alt="ISO/IEC 27001:2022 certificate">
       </div>
-      <div class="cert-showcase-body">
-        <div class="cert-showcase-header">
-          <img class="cert-showcase-icon" src="assets/recognitions/image6.png" alt="ISO 27001">
-          <h4>ISO/IEC 27001:2022</h4>
-        </div>
-        <p>International information-security standards that safeguard the confidentiality, integrity, and security of client business data.</p>
-      </div>
+      <img class="cert-item-icon" src="assets/recognitions/image6.png" alt="ISO 27001">
+      <h4>ISO/IEC 27001:2022</h4>
+      <p>International information-security standards that safeguard the confidentiality, integrity, and security of client business data.</p>
     </div>
-
-    <div class="cert-showcase-panel">
-      <span class="cert-showcase-number">CMMI</span>
-      <div class="cert-showcase-visual">
+    <div class="cert-item">
+      <div class="cert-item-img">
         <img src="assets/recognitions/image9.png" alt="CMMI Level 3 certificate">
       </div>
-      <div class="cert-showcase-body">
-        <div class="cert-showcase-header">
-          <img class="cert-showcase-icon" src="assets/recognitions/cmmi-level3.png" alt="CMMI Level 3">
-          <h4>CMMI Level 3</h4>
-        </div>
-        <p>Mature project-management and software-development practices that support predictable, high-quality ERP delivery.</p>
-      </div>
+      <img class="cert-item-icon" src="assets/recognitions/cmmi-level3.png" alt="CMMI Level 3">
+      <h4>CMMI Level 3</h4>
+      <p>Mature project-management and software-development practices that support predictable, high-quality ERP delivery.</p>
     </div>
   </div>
 </section>
