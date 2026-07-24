@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Us - Oodu Implementers (Clone)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --primary: #604058;
+  --gold: #E3AA25;
+  --black: #000;
+  --white: #fff;
+  --light-pink: #F7E5EF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #000;
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   SECTION 1: OUR STORY
+   ========================================== */
+.story-section {
+  display: flex;
+  gap: 0;
+  margin-top: 190px;
+  max-width: 100%;
+}
+.story-img-wrap {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.story-img-wrap img {
+  max-width: 466px;
+  width: 100%;
+  height: auto;
+}
+.story-text-wrap {
+  width: 50%;
+  padding: 20px 40px 20px 20px;
+  align-self: flex-start;
+}
+.story-text-wrap h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 50px;
+  color: #000;
+  margin-bottom: 30px;
+}
+.story-text-wrap h2 .gold { color: #E3AA25; }
+.story-text-wrap p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   SECTION 2: MARQUEE / MOVING TEXT BANNER
+   ========================================== */
+.marquee-section {
+  border-top: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  margin: 0 0 120px;
+  padding: 25px 0;
+  overflow: hidden;
+  background: #fff;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  animation: marqueeScroll 24s linear infinite;
+  white-space: nowrap;
+}
+.marquee-track img {
+  width: 210px;
+  height: 68px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: saturate(1.05) contrast(1.05);
+}
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================
+   SECTION 3: RECOGNITIONS & ACHIEVEMENTS
+   ========================================== */
+.recognitions-section {
+  padding: 100px 5vw 110px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff 0%, #fffdf8 100%);
+}
+.recognitions-heading {
+  max-width: 1380px;
+  margin: 0 auto 60px;
+  font-size: clamp(38px, 5vw, 74px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+.recognitions-heading .accent { color: var(--gold); }
+.recognitions-layout {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(360px, .92fr) 1.08fr;
+  align-items: center;
+  gap: clamp(40px, 7vw, 110px);
+}
+.certificate-stage {
+  position: relative;
+  height: 420px;
+  isolation: isolate;
+}
+.certificate-stage::before {
+  content: "";
+  position: absolute;
+  width: 88%; height: 74px;
+  left: 6%; bottom: 10px;
+  background: rgba(86, 48, 75, .20);
+  filter: blur(25px);
+  border-radius: 50%;
+  z-index: -1;
+}
+.certificate-card {
+  position: absolute;
+  width: min(76%, 340px);
+  aspect-ratio: 1.38;
+  padding: 8px;
+  border: 1px solid rgba(227, 170, 37, .55);
+  border-radius: 5px;
+  background: linear-gradient(135deg, #fff 0%, #fffaf0 100%);
+  box-shadow: 0 24px 45px rgba(37, 21, 34, .20), inset 0 0 0 7px rgba(227, 170, 37, .10);
+  overflow: hidden;
+}
+.certificate-card::before,
+.certificate-card::after {
+  content: "";
+  position: absolute;
+  width: 38px; height: 38px;
+  border-color: var(--gold);
+  opacity: .8;
+}
+.certificate-card::before { top: 12px; left: 12px; border-top: 2px solid; border-left: 2px solid; }
+.certificate-card::after { right: 12px; bottom: 12px; border-right: 2px solid; border-bottom: 2px solid; }
+.certificate-card.back { top: 38px; left: 0; transform: rotate(-11deg); opacity: .76; }
+.certificate-card.middle { top: 58px; right: 2%; transform: rotate(9deg); background: linear-gradient(135deg, #fffdf8, #f4e5ed); }
+.certificate-card.front { top: 88px; left: 13%; transform: rotate(-1.5deg); z-index: 2; }
+.certificate-card img { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; }
+.recognitions-copy > p {
+  max-width: 650px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #4e4a4d;
+  margin: 0 0 29px;
+}
+.recognition-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px 28px;
+}
+.recognition-item {
+  position: relative;
+  padding-right: 92px;
+  min-height: 120px;
+  padding: 4px 0 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, .14);
+}
+.recognition-number { display: block; margin-bottom: 8px; color: var(--gold); font-size: 13px; font-weight: 800; letter-spacing: .1em; }
+.recognition-item h3 { margin: 0 0 7px; font-size: 19px; line-height: 1.18; }
+.recognition-item p { margin: 0; color: #615b60; font-size: 14px; line-height: 1.5; }
+.recognition-logo {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  width: 72px;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* Alternate 3D gallery: every certificate and every detail remains visible. */
+.recognitions-section--gallery { background: linear-gradient(135deg, #fffdf9 0%, #f7e5ef 100%); }
+.recognitions-section--gallery .recognitions-layout { display: block; }
+.recognitions-section--gallery .certificate-stage {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 42px);
+  height: auto;
+  max-width: 1160px;
+  margin: 0 auto 72px;
+  perspective: 1600px;
+}
+.recognitions-section--gallery .certificate-stage::before { display: none; }
+.recognitions-section--gallery .certificate-card {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  top: auto;
+  right: auto;
+  left: auto;
+  aspect-ratio: .72;
+  padding: 12px;
+  opacity: 1;
+  transform: rotateY(7deg) rotateX(2deg);
+  transform-style: preserve-3d;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: -15px 18px 0 rgba(96, 64, 88, .13), 0 25px 38px rgba(37, 21, 34, .22);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.recognitions-section--gallery .certificate-card.middle { transform: translateY(-16px) rotateX(2deg); }
+.recognitions-section--gallery .certificate-card.back { transform: rotateY(-7deg) rotateX(2deg); }
+.recognitions-section--gallery .certificate-card:hover { transform: translateY(-10px) rotateX(0) rotateY(0); box-shadow: 0 28px 42px rgba(37, 21, 34, .28); }
+.recognitions-section--gallery .certificate-card::before,
+.recognitions-section--gallery .certificate-card::after { display: none; }
+.recognitions-section--gallery .certificate-card img { object-fit: contain; }
+.recognitions-section--gallery .recognitions-copy > p { max-width: 860px; margin: 0 auto 34px; text-align: center; font-size: 18px; }
+.recognitions-section--gallery .recognition-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.recognitions-section--gallery .recognition-item {
+  min-height: 220px;
+  padding: 26px 22px 24px 122px;
+  border: 1px solid rgba(96, 64, 88, .13);
+  border-radius: 14px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 11px 24px rgba(58, 31, 52, .09);
+  transform: translateZ(0);
+}
+.recognitions-section--gallery .recognition-item:hover { transform: translateY(-5px); box-shadow: 0 18px 30px rgba(58, 31, 52, .15); }
+.recognitions-section--gallery .recognition-logo { left: 20px; right: auto; top: 50%; transform: translateY(-50%); width: 82px; height: 72px; }
+.recognitions-section--gallery .recognition-item h3 { font-size: 20px; }
+.recognitions-section--gallery .recognition-item p { font-size: 14px; }
+
+/* Premium concept: a restrained, gallery-quality presentation with visible original certificates. */
+.recognitions-section--signature {
+  position: relative;
+  padding: 110px 5vw;
+  overflow: hidden;
+  color: #fff;
+  background: radial-gradient(circle at 50% 0%, #744e6c 0%, #352132 36%, #1f1620 100%);
+}
+.recognitions-section--signature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 20%, rgba(227,170,37,.08) 48%, transparent 67%);
+}
+.recognitions-section--signature .recognitions-heading {
+  position: relative;
+  max-width: 1100px;
+  margin-bottom: 18px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -.05em;
+}
+.recognitions-section--signature .recognitions-heading .accent { color: #f4c55b; }
+.recognitions-section--signature .recognitions-layout { display: block; position: relative; }
+.recognitions-section--signature .certificate-stage {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 58px);
+  height: auto;
+  max-width: 1130px;
+  margin: 0 auto 72px;
+  padding: 60px clamp(20px, 5vw, 70px);
+  border: 1px solid rgba(244,197,91,.28);
+  border-radius: 22px;
+  perspective: 1800px;
+  background: linear-gradient(125deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  box-shadow: inset 0 1px rgba(255,255,255,.18), 0 38px 70px rgba(0,0,0,.28);
+}
+.recognitions-section--signature .certificate-stage::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 66%; height: 56%;
+  left: 17%; top: 2%;
+  background: radial-gradient(ellipse, rgba(255,246,214,.34), transparent 68%);
+  filter: blur(8px);
+  z-index: 0;
+}
+.recognitions-section--signature .certificate-card {
+  position: relative;
+  z-index: 1;
+  width: 100%; max-width: none;
+  top: auto; left: auto; right: auto;
+  aspect-ratio: .72;
+  padding: 10px;
+  opacity: 1;
+  overflow: visible;
+  border: 1px solid rgba(244,197,91,.7);
+  border-radius: 9px;
+  background: #fff;
+  transform: rotateY(10deg) rotateX(2deg);
+  box-shadow: -14px 17px 0 rgba(0,0,0,.20), 0 27px 36px rgba(0,0,0,.38);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.recognitions-section--signature .certificate-card.middle { transform: translateY(-18px) rotateX(2deg); }
+.recognitions-section--signature .certificate-card.back { transform: rotateY(-10deg) rotateX(2deg); }
+.recognitions-section--signature .certificate-card:hover { transform: translateY(-12px) rotateX(0) rotateY(0); box-shadow: 0 34px 46px rgba(0,0,0,.5); }
+.recognitions-section--signature .certificate-card::before,
+.recognitions-section--signature .certificate-card::after { display: none; }
+.recognitions-section--signature .certificate-card img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.recognitions-section--signature .recognitions-copy > p { max-width: 830px; margin: 0 auto 35px; text-align: center; color: rgba(255,255,255,.85); font-size: 18px; }
+.recognitions-section--signature .recognition-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.recognitions-section--signature .recognition-item {
+  min-height: 206px;
+  padding: 25px 22px 22px 113px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+  background: rgba(255,255,255,.08);
+  box-shadow: inset 0 1px rgba(255,255,255,.10);
+  backdrop-filter: blur(8px);
+}
+.recognitions-section--signature .recognition-item:hover { background: rgba(255,255,255,.14); transform: translateY(-4px); }
+.recognitions-section--signature .recognition-number { color: #f4c55b; }
+.recognitions-section--signature .recognition-item h3 { color: #fff; font-size: 20px; }
+.recognitions-section--signature .recognition-item p { color: rgba(255,255,255,.78); }
+.recognitions-section--signature .recognition-logo { left: 18px; right: auto; top: 50%; width: 76px; height: 72px; transform: translateY(-50%); filter: drop-shadow(0 5px 10px rgba(0,0,0,.24)); }
+
+/* ==========================================
+   SECTION 4: MISSION & VISION
+   ========================================== */
+.mv-section {
+  margin: 20px 0;
+}
+.mv-title {
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 45px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 60px;
+  line-height: 1.2;
+}
+.mv-container {
+  max-width: 1400px;
+  margin: 10px 15px;
+  position: relative;
+  padding: 20px 15px;
+  font-family: 'Inter', sans-serif;
+}
+.mv-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: calc(100% - 80px);
+  background: #000;
+  transform: translateX(-50%);
+}
+.mv-dot {
+  width: 14px;
+  height: 14px;
+  background: #4c304b;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.dot-1 { top: 40px; }
+.dot-2 { top: 290px; }
+.dot-3 { top: 540px; }
+.mv-row {
+  position: relative;
+  min-height: 250px;
+}
+.mv-img {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+.mv-img img { width: 90%; }
+.mv-text {
+  width: 340px;
+  position: absolute;
+  top: 0;
+}
+.mv-heading {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #000;
+}
+.mv-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.25);
+}
+.mv-box p {
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+.mv-left .mv-img { right: 52%; }
+.mv-left .mv-text { left: 52%; text-align: left; }
+.mv-right .mv-img { left: 52%; }
+.mv-right .mv-text { right: 52%; text-align: right; }
+
+/* ==========================================
+   SECTION 5: CEO's MESSAGE
+   ========================================== */
+.ceo-section { padding: 0; }
+.ceo-badge {
+  display: inline-block;
+  padding: 7px 22px;
+  border-radius: 30px;
+  border: 1.8px solid #000;
+  font-weight: 700;
+  margin-bottom: 18px;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.ceo-badge:hover { background: #604058; color: #fff; border-color: #604058; }
+.ceo-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 10px;
+}
+.ceo-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.ceo-left { width: 58%; position: relative; z-index: 2; }
+.ceo-text p {
+  margin: 0 0 14px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #000;
+  text-align: left;
+}
+.ceo-sign {
+  margin-top: 45px;
+  margin-right: 30px;
+  margin-left: 45%;
+  font-weight: 500;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: #000;
+}
+.ceo-right { width: 40%; position: relative; z-index: 3; display: flex; justify-content: flex-end; }
+.ceo-right img {
+  width: 360px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  transform: rotate(0.5deg);
+}
+.quote-open, .quote-close {
+  font-size: 76px;
+  color: #6b3b4a;
+  line-height: 0.85;
+  font-weight: 900;
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+}
+.quote-open {
+  left: calc(40% - 480px);
+  top: 65px;
+}
+.quote-close {
+  right: calc(50% - 100px);
+  bottom: 36px;
+  z-index: 2;
+}
+
+/* ==========================================
+   SECTION 6: OUR TEAM
+   ========================================== */
+.team-section {
+  background-color: #604058;
+  padding: 60px 0;
+  color: #fff;
+  margin-top: 100px;
+}
+.team-badge {
+  display: inline-block;
+  padding: 7px 22px;
+  border-radius: 30px;
+  border: 1.8px solid #000;
+  font-weight: 700;
+  margin-bottom: 18px;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  color: #000;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+.team-badge:hover { background: #604058; color: #fff; border-color: #604058; }
+.team-title {
+  font-family: 'Caveat', cursive;
+  font-size: 45px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.team-subtitle {
+  text-align: center;
+  font-size: 17px;
+  color: #000;
+  margin-bottom: 40px;
+}
+.team-heading {
+  text-align: left;
+  margin-bottom: 80px;
+  max-width: 900px;
+  margin-left: 150px;
+  font-family: 'Inter', sans-serif;
+}
+.team-heading h2 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  font-weight: 400;
+}
+.team-heading p {
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  font-weight: 400;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  max-width: 1200px;
+  margin: auto;
+}
+.team-card {
+  border: 2px solid #fff;
+  border-radius: 20px;
+  padding: 35px;
+  text-align: left;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.3s;
+}
+.team-card .icon img {
+  width: 70px;
+  filter: brightness(0) invert(1);
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+.team-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+.team-card p {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+.team-card:hover {
+  background: #F7E5EF;
+  border-color: #F7E5EF;
+}
+.team-card:hover .icon img {
+  filter: brightness(0) invert(0);
+  transform: scale(1.03);
+}
+.team-card:hover h3, .team-card:hover p { color: #000; }
+
+/* ==========================================
+   SECTION 7: OUR LOCATIONS
+   ========================================== */
+.locations-section {
+  margin-top: 100px;
+  padding: 0;
+}
+.locations-title {
+  font-family: 'Caveat', cursive;
+  font-size: 50px;
+  font-weight: 700;
+  color: #000;
+  text-align: left;
+  padding: 0 15px;
+  max-width: 85%;
+  margin: 0 auto 10px;
+}
+.locations-desc {
+  font-size: 17px;
+  font-weight: 400;
+  color: #000;
+  max-width: 85%;
+  margin: 0 auto 20px;
+  padding: 0 15px;
+}
+.locations-btn-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+.btn-know {
+  background-color: #604058;
+  color: #fff;
+  padding: 5px 30px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+.btn-know:hover { color: #E3AA25; }
+.btn-arrow {
+  width: 36px;
+  height: 36px;
+  background-color: #5a3b52;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+.btn-arrow svg { width: 30px; height: 30px; stroke: #fff; stroke-width: 2; fill: none; }
+.btn-wrapper:hover .btn-arrow { transform: translateX(3px); }
+.locations-wrapper { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+}
+.location-card {
+  position: relative;
+  height: 320px;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.location-card:hover { transform: translateY(-6px); }
+.location-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.location-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
+  z-index: 1;
+}
+.location-content {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  z-index: 2;
+  color: #fff;
+}
+.location-content h3 { margin: 0 0 6px; font-size: 18px; font-weight: 700; color: #fff; font-family: 'Inter', sans-serif; }
+.location-content p { margin: 0; font-size: 14px; line-height: 1.4; font-family: 'Inter', sans-serif; }
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 1024px) {
+  .story-section { margin-top: 100px; }
+  .story-text-wrap h2 { font-size: 40px; }
+  .story-text-wrap p { font-size: 16px; }
+  .story-text-wrap { padding: 20px; }
+  .ceo-inner { gap: 30px; }
+  .quote-open { left: 10px; font-size: 72px; top: -6px; }
+  .quote-close { right: 30px; bottom: 22px; font-size: 72px; }
+  .ceo-right img { width: 320px; }
+  .marquee-track { gap: 70px; }
+  .recognitions-layout { grid-template-columns: .8fr 1.2fr; gap: 42px; }
+  .certificate-stage { height: 350px; }
+  .recognitions-section--gallery .certificate-stage { height: auto; }
+  .recognitions-section--gallery .recognition-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .recognitions-section--signature .certificate-stage { height: auto; }
+  .recognitions-section--signature .recognition-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .story-section { flex-direction: column; margin-top: 50px; }
+  .story-img-wrap, .story-text-wrap { width: 100%; }
+  .story-img-wrap img { max-width: 95%; }
+  .story-text-wrap h2 { font-size: 35px; }
+  .marquee-track { gap: 48px; }
+  .marquee-track img { width: 165px; height: 56px; }
+  .mv-line, .mv-dot { display: none; }
+  .mv-row { margin-bottom: 60px; }
+  .mv-img, .mv-text { position: static; margin: auto; text-align: center; }
+  .mv-text { width: 50%; margin-top: 15px; }
+  .mv-heading { text-align: center; font-size: 22px; }
+  .mv-box p { text-align: center; font-size: 15px; }
+  .ceo-inner { flex-direction: column-reverse; align-items: center; padding: 0 10px; }
+  .ceo-left, .ceo-right { width: 100%; }
+  .quote-open { left: 8px; top: -12px; font-size: 64px; }
+  .quote-close { right: 12px; bottom: -6px; font-size: 64px; }
+  .ceo-right { display: block; text-align: center; }
+  .ceo-right img { width: 240px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  .ceo-text p { text-align: center; }
+  .ceo-sign { margin-left: 0; }
+  .team-heading { margin-left: 10px; }
+  .team-heading h2 { font-size: 22px; }
+  .team-heading p { font-size: 18px; }
+  .team-card h3 { font-size: 20px; }
+  .team-card p { font-size: 16px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .locations-grid { grid-template-columns: repeat(2, 1fr); }
+  .recognitions-section { padding: 75px 7vw; }
+  .recognitions-heading { margin-bottom: 38px; }
+  .recognitions-layout { grid-template-columns: 1fr; gap: 28px; }
+  .certificate-stage { max-width: 500px; width: 100%; height: 370px; margin: 0 auto; }
+  .recognitions-section--gallery .certificate-stage { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; height: auto; }
+  .recognitions-section--signature { padding: 80px 7vw; }
+  .recognitions-section--signature .certificate-stage { height: auto; padding: 42px 24px; }
+}
+
+@media (max-width: 480px) {
+  .mv-text { width: 90%; }
+  .mv-heading { font-size: 20px; }
+  .team-grid { grid-template-columns: 1fr; }
+  .locations-grid { grid-template-columns: 1fr; }
+  .quote-open, .quote-close { font-size: 48px; }
+  .ceo-right img { width: 200px; }
+  .ceo-text p { font-size: 14px; }
+  .recognition-list { grid-template-columns: 1fr; gap: 4px; }
+  .recognition-item { min-height: auto; }
+  .recognition-logo { width: 64px; }
+  .certificate-stage { height: 310px; }
+  .certificate-card { padding: 19px; }
+  .recognitions-section--gallery .certificate-stage { grid-template-columns: 1fr; max-width: 300px; }
+  .recognitions-section--gallery .certificate-card,
+  .recognitions-section--gallery .certificate-card.middle,
+  .recognitions-section--gallery .certificate-card.back { transform: none; }
+  .recognitions-section--gallery .recognition-list { grid-template-columns: 1fr; }
+  .recognitions-section--signature .certificate-stage { grid-template-columns: 1fr; max-width: 320px; }
+  .recognitions-section--signature .certificate-card,
+  .recognitions-section--signature .certificate-card.middle,
+  .recognitions-section--signature .certificate-card.back { transform: none; }
+  .recognitions-section--signature .recognition-list { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     SECTION 1: OUR STORY
+     ========================================== -->
+<section class="story-section">
+  <div class="story-img-wrap">
+    <img src="https://www.odooimplementers.com/wp-content/uploads/2026/02/About-story.png"
+         alt="Oodu Implementers Story" width="466" height="637">
+  </div>
+  <div class="story-text-wrap">
+    <h2>About <span class="gold">Us.</span></h2>
+    <p>Every business has a story, and ours began with a simple belief: technology should make work easier. We saw many SMEs and MSMEs struggling to grow because their systems were outdated. Teams worked harder, but still lacked visibility, control, and efficiency. That's when we found Odoo&mdash;a flexible and scalable system that can change how businesses operate.</p>
+    <p>Implementing Odoo properly requires more than technical knowledge. It requires understanding each business and creating solutions that match their real needs. With this mindset, Oodu Implementers Private Limited grew from a small team into a trusted Odoo Certified Gold Partner. Today, we support businesses in manufacturing, trading, retail, restaurants, services, logistics, and many more. We help companies move from manual processes to digital systems, from multiple tools to one unified platform, and from slow tasks to smart automation.</p>
+    <p>We are proud not of what we built for ourselves, but of what our clients achieved through us. We've helped them increase efficiency, reduce costs, gain real-time insights, and build systems that grow with their business. Our success comes from the trust and long-term relationships we create.</p>
+    <p>At Oodu Implementers, we don't just implement software&mdash;we bring growth, clarity, and confidence to your business.</p>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 2: MARQUEE BANNER
+     ========================================== -->
+<section class="marquee-section">
+  <div class="marquee-track" aria-label="Our memberships and recognitions">
+    <img src="assets/recognitions/image1.png" alt="Odoo Gold Partner">
+    <img src="assets/recognitions/image2.png" alt="BOP Alliance Member">
+    <img src="assets/recognitions/image3.png" alt="NASSCOM Certified Member">
+    <img src="assets/recognitions/iso-9001.png" alt="ISO 9001:2015 Certified">
+    <img src="assets/recognitions/cmmi-level3.png" alt="CMMI Level 3 Certified">
+    <!-- duplicate logos for seamless movement -->
+    <img src="assets/recognitions/image1.png" alt="">
+    <img src="assets/recognitions/image2.png" alt="">
+    <img src="assets/recognitions/image3.png" alt="">
+    <img src="assets/recognitions/iso-9001.png" alt="">
+    <img src="assets/recognitions/cmmi-level3.png" alt="">
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 3: RECOGNITIONS & ACHIEVEMENTS
+     ========================================== -->
+<section class="recognitions-section recognitions-section--signature" aria-labelledby="recognitions-title">
+  <h2 class="recognitions-heading" id="recognitions-title">Our <span class="accent">Recognitions</span> &amp; Achievements</h2>
+  <div class="recognitions-layout">
+    <div class="certificate-stage" aria-label="Layered representation of our certificates">
+      <article class="certificate-card back" aria-hidden="true">
+        <img src="assets/recognitions/image7.png" alt="ISO/IEC 27001:2022 certificate">
+      </article>
+      <article class="certificate-card middle" aria-hidden="true">
+        <img src="assets/recognitions/image5.png" alt="ISO 9001:2015 certificate">
+      </article>
+      <article class="certificate-card front">
+        <img src="assets/recognitions/image9.png" alt="CMMI Maturity Level 3 certificate">
+      </article>
+    </div>
+    <div class="recognitions-copy">
+      <p>Every recognition reflects the standards behind our work: dependable delivery, secure systems, and Odoo expertise that helps businesses scale with confidence.</p>
+      <div class="recognition-list">
+        <article class="recognition-item">
+          <img class="recognition-logo" src="assets/recognitions/image1.png" alt="Odoo Gold Partner logo">
+          <span class="recognition-number">01</span>
+          <h3>Odoo Gold Partner</h3>
+          <p>Recognized for deep expertise, successful delivery, and world-class Odoo ERP implementation, customization, migration, training, and support.</p>
+        </article>
+        <article class="recognition-item">
+          <img class="recognition-logo" src="assets/recognitions/image2.png" alt="BOP Alliance logo">
+          <span class="recognition-number">02</span>
+          <h3>BOP Alliance Member</h3>
+          <p>Worldwide Odoo ERP implementation combining centralized project governance with localized compliance and cultural expertise.</p>
+        </article>
+        <article class="recognition-item">
+          <img class="recognition-logo" src="assets/recognitions/image3.png" alt="NASSCOM Certified Member logo">
+          <span class="recognition-number">03</span>
+          <h3>NASSCOM Member</h3>
+          <p>Part of India's premier technology association, reinforcing our commitment to innovation, digital transformation, and global best practices.</p>
+        </article>
+        <article class="recognition-item">
+          <img class="recognition-logo" src="assets/recognitions/iso-9001.png" alt="ISO 9001:2015 certification mark">
+          <span class="recognition-number">04</span>
+          <h3>ISO 9001:2015</h3>
+          <p>Demonstrates a robust Quality Management System focused on consistent service, customer satisfaction, and continual improvement.</p>
+        </article>
+        <article class="recognition-item">
+          <img class="recognition-logo" src="assets/recognitions/image6.png" alt="ISO/IEC 27001:2022 certification mark">
+          <span class="recognition-number">05</span>
+          <h3>ISO/IEC 27001:2022</h3>
+          <p>International information-security standards that safeguard the confidentiality, integrity, and security of client business data.</p>
+        </article>
+        <article class="recognition-item">
+          <img class="recognition-logo" src="assets/recognitions/cmmi-level3.png" alt="CMMI Level 3 logo">
+          <span class="recognition-number">06</span>
+          <h3>CMMI Level 3</h3>
+          <p>Mature project-management and software-development practices that support predictable, high-quality ERP delivery.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 4: MISSION & VISION
+     ========================================== -->
+<section class="mv-section">
+  <div style="text-align:center; margin-bottom:10px;">
+    <span class="ceo-badge">Mission &amp; Vision</span>
+  </div>
+  <h2 class="mv-title">Strategic Mission &amp; Long-Term<br>Vision</h2>
+  <div class="mv-container">
+    <div class="mv-line"></div>
+    <div class="mv-dot dot-1"></div>
+    <div class="mv-dot dot-2"></div>
+    <div class="mv-dot dot-3"></div>
+
+    <div class="mv-row mv-left">
+      <div class="mv-img">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2025/12/mission-1.png" alt="Our Mission Icon">
+      </div>
+      <div class="mv-text">
+        <div class="mv-heading">Our Mission</div>
+        <div class="mv-box">
+          <p>To empower businesses with smart, scalable, and efficient systems that simplify work and accelerate growth.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mv-row mv-right">
+      <div class="mv-img">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2025/12/stroke.png" alt="Our Vision Icon">
+      </div>
+      <div class="mv-text">
+        <div class="mv-heading">Our Vision</div>
+        <div class="mv-box">
+          <p>To be a trusted Odoo transformation partner helping organizations worldwide run better, faster, and smarter.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mv-row mv-left">
+      <div class="mv-img">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2025/12/XMLID_936_.png" alt="Our Approach Icon">
+      </div>
+      <div class="mv-text">
+        <div class="mv-heading">Our Approach</div>
+        <div class="mv-box">
+          <p>Listen carefully. Plan thoughtfully.<br>Deliver confidently. Support continuously.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 5: CEO's MESSAGE
+     ========================================== -->
+<section class="ceo-section">
+  <div style="text-align:center;">
+    <span class="ceo-badge">CEO's Message</span>
+  </div>
+  <div class="ceo-wrapper">
+    <div class="ceo-inner">
+      <div class="quote-open">&#10077;</div>
+      <div class="ceo-left">
+        <div class="ceo-text">
+          <p>At Oodu Implementers, our purpose is clear &mdash; to make businesses work smarter with technology that truly fits their needs. Odoo is powerful, but its real magic appears when it aligns perfectly with your vision. That's where we come in.</p>
+          <p>Every project we take up is a promise &mdash; a promise to deliver transparency, quality, and long-term value. We don't think of ourselves as just implementers. We think of ourselves as partners committed to your growth. Your success is our story, and each milestone you achieve inspires us to raise our standards even higher.</p>
+          <p>Thank you for trusting us to be part of your journey. Together, let's decode challenges, build smarter systems, and shape the future of your business.</p>
+          <h4 class="ceo-sign">&ndash; D.Purushothaman, Managing Director<br>Oodu Implementers Pvt. Ltd.</h4>
+        </div>
+      </div>
+      <div class="ceo-right">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/02/odoo-ceo-scaled.png"
+             alt="D. Purushothaman - Managing Director of Oodu Implementers Pvt Ltd">
+      </div>
+      <div class="quote-close">&#10078;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 6: OUR TEAM
+     ========================================== -->
+<div style="text-align:center; margin-top:50px;">
+  <span class="ceo-badge">Our Team</span>
+</div>
+<h2 class="team-title">Meet Our Team</h2>
+<p class="team-subtitle">Behind every successful implementation is a team that cares, listens, and delivers.<br>We are a blend of strategists, consultants, developers, designers, and support specialists &mdash; all united by one mission: to create meaningful impact for your business.</p>
+
+<section class="team-section">
+  <div class="team-heading">
+    <h2>Together, we are more than a team.</h2>
+    <p>We are partners dedicated to building systems that move your business forward.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="icon">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2025/12/About-icons-1.png"
+             alt="Consulting and Strategy Team Icon">
+      </div>
+      <h3>Consulting &amp; Strategy Team</h3>
+      <p>The thinkers and planners. They dive deep into your processes, understand your challenges, and design solutions that make your business faster, smarter, and more efficient.</p>
+    </div>
+    <div class="team-card">
+      <div class="icon">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2025/12/About-icons-2.png"
+             alt="Technical and Development Team Icon">
+      </div>
+      <h3>Technical &amp; Development Team</h3>
+      <p>The builders. They bring ideas to life with precise customizations, integrations, automation, and seamless workflows tailored to your goals.</p>
+    </div>
+    <div class="team-card">
+      <div class="icon">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2025/12/About-icons-3.png"
+             alt="Project Management Team Icon">
+      </div>
+      <h3>Project Management Team</h3>
+      <p>The organizers and guides. They ensure your project stays on track, on time, and aligned with every requirement &mdash; with clarity at every stage.</p>
+    </div>
+    <div class="team-card">
+      <div class="icon">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2025/12/About-icons-4.png"
+             alt="Support and Success Team Icon">
+      </div>
+      <h3>Support &amp; Success Team</h3>
+      <p>The helpers and problem-solvers. They stay with you long after the project is complete, offering continuous support, improvements, and peace of mind.</p>
+    </div>
+    <div class="team-card">
+      <div class="icon">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2025/12/About-icons-5.png"
+             alt="Leadership Team Icon">
+      </div>
+      <h3>Leadership Team</h3>
+      <p>The visionaries who keep us focused on delivering excellence, maintaining transparency, and continuously improving our standards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 7: OUR LOCATIONS
+     ========================================== -->
+<section class="locations-section">
+  <h2 class="locations-title">Our Locations</h2>
+  <p class="locations-desc">Take a look at the numerous locations of our best odoo partners alliance. With our worldwide coverage of odoo partners and their global offices you will be guaranteed to find the best partner for your Project.</p>
+  <div class="locations-btn-wrap">
+    <a href="#" class="btn-know">View All Locations</a>
+    <a href="#" class="btn-arrow">
+      <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+    </a>
+  </div>
+  <div class="locations-wrapper">
+    <div class="locations-grid">
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/coimbatore.png" alt="Coimbatore">
+        <div class="location-content">
+          <h3>Coimbatore</h3>
+          <p>Oodu Implementers, A-Block, #19, Kurinji Nagar, Indira Nagar, Civil Aerodrome Post, Coimbatore, Tamil Nadu 641014, India.</p>
+        </div>
+      </div>
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/chennai.png" alt="Chennai">
+        <div class="location-content"><h3>Chennai</h3></div>
+      </div>
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/bengaluru.png" alt="Bengaluru">
+        <div class="location-content"><h3>Bengaluru</h3></div>
+      </div>
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/hyderabad.png" alt="Hyderabad">
+        <div class="location-content"><h3>Hyderabad</h3></div>
+      </div>
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/mumbai.png" alt="Mumbai">
+        <div class="location-content"><h3>Mumbai</h3></div>
+      </div>
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/pune.png" alt="Pune">
+        <div class="location-content"><h3>Pune</h3></div>
+      </div>
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/nagpur.png" alt="Nagpur">
+        <div class="location-content"><h3>Nagpur</h3></div>
+      </div>
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/calcutta.png" alt="Kolkata">
+        <div class="location-content"><h3>Kolkata</h3></div>
+      </div>
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/Israel.png" alt="Service Locations">
+        <div class="location-content"><h3>Service Locations</h3></div>
+      </div>
+      <div class="location-card">
+        <img src="https://www.odooimplementers.com/wp-content/uploads/2026/01/Germany.png" alt="BOP Locations">
+        <div class="location-content"><h3>BOP Locations</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center; padding:40px; color:#999; font-size:13px; margin-top:50px; border-top:1px solid rgba(0,0,0,0.1);">
+  ISO 9001 | ISO 27001 Certified &copy; 2026 Oodu Implementers Private Limited. All Rights Reserved.
+</div>
+
+</body>
+</html>
