@@ -107,149 +107,142 @@ body {
 }
 .recognitions-heading {
   max-width: 1380px;
-  margin: 0 auto 60px;
+  margin: 0 auto 18px;
   font-size: clamp(38px, 5vw, 74px);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.06em;
+  text-align: center;
 }
 .recognitions-heading .accent { color: var(--gold); }
-.recognitions-layout {
-  max-width: 1380px;
-  margin: 0 auto;
+.recognitions-intro {
+  max-width: 780px;
+  margin: 0 auto 60px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255,255,255,.85);
+}
+
+/* HERO: 3 featured recognitions */
+.hero-recognitions {
   display: grid;
-  grid-template-columns: minmax(360px, .92fr) 1.08fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(30px, 5vw, 70px);
+  max-width: 1000px;
+  margin: 0 auto 90px;
+}
+.hero-recog-item {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(40px, 7vw, 110px);
+  gap: 24px;
 }
-.certificate-stage {
-  position: relative;
-  height: 420px;
-  isolation: isolate;
-}
-.certificate-stage::before {
-  content: "";
-  position: absolute;
-  width: 88%; height: 74px;
-  left: 6%; bottom: 10px;
-  background: rgba(86, 48, 75, .20);
-  filter: blur(25px);
+.hero-recog-logo-wrap {
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  z-index: -1;
+  background: rgba(255,255,255,.12);
+  border: 2px solid rgba(244,197,91,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  transition: all .35s ease;
+  backdrop-filter: blur(4px);
 }
-.certificate-card {
-  position: absolute;
-  width: min(76%, 340px);
-  aspect-ratio: 1.38;
-  padding: 8px;
-  border: 1px solid rgba(227, 170, 37, .55);
-  border-radius: 5px;
-  background: linear-gradient(135deg, #fff 0%, #fffaf0 100%);
-  box-shadow: 0 24px 45px rgba(37, 21, 34, .20), inset 0 0 0 7px rgba(227, 170, 37, .10);
-  overflow: hidden;
+.hero-recog-logo-wrap:hover {
+  background: rgba(255,255,255,.22);
+  border-color: #f4c55b;
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
 }
-.certificate-card::before,
-.certificate-card::after {
-  content: "";
-  position: absolute;
-  width: 38px; height: 38px;
-  border-color: var(--gold);
-  opacity: .8;
-}
-.certificate-card::before { top: 12px; left: 12px; border-top: 2px solid; border-left: 2px solid; }
-.certificate-card::after { right: 12px; bottom: 12px; border-right: 2px solid; border-bottom: 2px solid; }
-.certificate-card.back { top: 38px; left: 0; transform: rotate(-11deg); opacity: .76; }
-.certificate-card.middle { top: 58px; right: 2%; transform: rotate(9deg); background: linear-gradient(135deg, #fffdf8, #f4e5ed); }
-.certificate-card.front { top: 88px; left: 13%; transform: rotate(-1.5deg); z-index: 2; }
-.certificate-card img { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; }
-.recognitions-copy > p {
-  max-width: 650px;
-  font-size: 17px;
-  line-height: 1.7;
-  color: #4e4a4d;
-  margin: 0 0 29px;
-}
-.recognition-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 17px 28px;
-}
-.recognition-item {
-  position: relative;
-  padding-right: 92px;
-  min-height: 120px;
-  padding: 4px 0 14px;
-  border-bottom: 1px solid rgba(0, 0, 0, .14);
-}
-.recognition-number { display: block; margin-bottom: 8px; color: var(--gold); font-size: 13px; font-weight: 800; letter-spacing: .1em; }
-.recognition-item h3 { margin: 0 0 7px; font-size: 19px; line-height: 1.18; }
-.recognition-item p { margin: 0; color: #615b60; font-size: 14px; line-height: 1.5; }
-.recognition-logo {
-  position: absolute;
-  right: 0;
-  top: 12px;
-  width: 72px;
-  height: 52px;
-  object-fit: contain;
-}
-
-/* Alternate 3D gallery: every certificate and every detail remains visible. */
-.recognitions-section--gallery { background: linear-gradient(135deg, #fffdf9 0%, #f7e5ef 100%); }
-.recognitions-section--gallery .recognitions-layout { display: block; }
-.recognitions-section--gallery .certificate-stage {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(18px, 3vw, 42px);
-  height: auto;
-  max-width: 1160px;
-  margin: 0 auto 72px;
-  perspective: 1600px;
-}
-.recognitions-section--gallery .certificate-stage::before { display: none; }
-.recognitions-section--gallery .certificate-card {
-  position: relative;
+.hero-recog-logo-wrap img {
   width: 100%;
-  max-width: none;
-  top: auto;
-  right: auto;
-  left: auto;
-  aspect-ratio: .72;
-  padding: 12px;
-  opacity: 1;
-  transform: rotateY(7deg) rotateX(2deg);
-  transform-style: preserve-3d;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: -15px 18px 0 rgba(96, 64, 88, .13), 0 25px 38px rgba(37, 21, 34, .22);
-  transition: transform .3s ease, box-shadow .3s ease;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
-.recognitions-section--gallery .certificate-card.middle { transform: translateY(-16px) rotateX(2deg); }
-.recognitions-section--gallery .certificate-card.back { transform: rotateY(-7deg) rotateX(2deg); }
-.recognitions-section--gallery .certificate-card:hover { transform: translateY(-10px) rotateX(0) rotateY(0); box-shadow: 0 28px 42px rgba(37, 21, 34, .28); }
-.recognitions-section--gallery .certificate-card::before,
-.recognitions-section--gallery .certificate-card::after { display: none; }
-.recognitions-section--gallery .certificate-card img { object-fit: contain; }
-.recognitions-section--gallery .recognitions-copy > p { max-width: 860px; margin: 0 auto 34px; text-align: center; font-size: 18px; }
-.recognitions-section--gallery .recognition-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-.recognitions-section--gallery .recognition-item {
-  min-height: 220px;
-  padding: 26px 22px 24px 122px;
-  border: 1px solid rgba(96, 64, 88, .13);
-  border-radius: 14px;
-  background: rgba(255,255,255,.92);
-  box-shadow: 0 11px 24px rgba(58, 31, 52, .09);
-  transform: translateZ(0);
+.hero-recog-label {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .02em;
 }
-.recognitions-section--gallery .recognition-item:hover { transform: translateY(-5px); box-shadow: 0 18px 30px rgba(58, 31, 52, .15); }
-.recognitions-section--gallery .recognition-logo { left: 20px; right: auto; top: 50%; transform: translateY(-50%); width: 82px; height: 72px; }
-.recognitions-section--gallery .recognition-item h3 { font-size: 20px; }
-.recognitions-section--gallery .recognition-item p { font-size: 14px; }
 
-/* Premium concept: a restrained, gallery-quality presentation with visible original certificates. */
+/* CERTIFICATES section */
+.certificates-subtitle {
+  text-align: center;
+  font-size: clamp(28px, 3.5vw, 42px);
+  color: #fff;
+  font-weight: 700;
+  margin: 0 0 50px;
+  letter-spacing: -.03em;
+}
+.certificates-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 4vw, 44px);
+  max-width: 1150px;
+  margin: 0 auto;
+}
+.cert-detail-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  transition: all .3s ease;
+}
+.cert-detail-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 44px rgba(0,0,0,.4);
+  border-color: rgba(244,197,91,.45);
+}
+.cert-detail-img {
+  width: 100%;
+  aspect-ratio: 1.4;
+  overflow: hidden;
+  background: #fff;
+}
+.cert-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 14px;
+}
+.cert-detail-info {
+  padding: 24px 22px 28px;
+}
+.cert-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.cert-detail-logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.cert-detail-header h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+.cert-detail-info p {
+  margin: 0;
+  color: rgba(255,255,255,.78);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Signature dark theme */
 .recognitions-section--signature {
   position: relative;
   padding: 110px 5vw;
-  overflow: hidden;
   color: #fff;
   background: radial-gradient(circle at 50% 0%, #744e6c 0%, #352132 36%, #1f1620 100%);
 }
@@ -260,78 +253,29 @@ body {
   pointer-events: none;
   background: linear-gradient(115deg, transparent 20%, rgba(227,170,37,.08) 48%, transparent 67%);
 }
-.recognitions-section--signature .recognitions-heading {
-  position: relative;
-  max-width: 1100px;
-  margin-bottom: 18px;
-  color: #fff;
-  text-align: center;
-  letter-spacing: -.05em;
-}
+.recognitions-section--signature .recognitions-heading { color: #fff; }
 .recognitions-section--signature .recognitions-heading .accent { color: #f4c55b; }
-.recognitions-section--signature .recognitions-layout { display: block; position: relative; }
-.recognitions-section--signature .certificate-stage {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(24px, 4vw, 58px);
-  height: auto;
-  max-width: 1130px;
-  margin: 0 auto 72px;
-  padding: 60px clamp(20px, 5vw, 70px);
-  border: 1px solid rgba(244,197,91,.28);
-  border-radius: 22px;
-  perspective: 1800px;
-  background: linear-gradient(125deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-  box-shadow: inset 0 1px rgba(255,255,255,.18), 0 38px 70px rgba(0,0,0,.28);
+.recognitions-section--signature .certificates-subtitle { color: #fff; }
+.recognitions-section--signature .certificates-subtitle .accent { color: #f4c55b; }
+.recognitions-section--signature .recognitions-intro { color: rgba(255,255,255,.85); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-recognitions { gap: 24px; }
+  .hero-recog-logo-wrap { width: 140px; height: 140px; padding: 22px; }
 }
-.recognitions-section--signature .certificate-stage::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 66%; height: 56%;
-  left: 17%; top: 2%;
-  background: radial-gradient(ellipse, rgba(255,246,214,.34), transparent 68%);
-  filter: blur(8px);
-  z-index: 0;
+@media (max-width: 768px) {
+  .recognitions-section { padding: 75px 7vw; }
+  .hero-recognitions { grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 60px; }
+  .hero-recog-logo-wrap { width: 110px; height: 110px; padding: 18px; }
+  .hero-recog-label { font-size: 15px; }
+  .certificates-row { grid-template-columns: 1fr; max-width: 420px; }
 }
-.recognitions-section--signature .certificate-card {
-  position: relative;
-  z-index: 1;
-  width: 100%; max-width: none;
-  top: auto; left: auto; right: auto;
-  aspect-ratio: .72;
-  padding: 10px;
-  opacity: 1;
-  overflow: visible;
-  border: 1px solid rgba(244,197,91,.7);
-  border-radius: 9px;
-  background: #fff;
-  transform: rotateY(10deg) rotateX(2deg);
-  box-shadow: -14px 17px 0 rgba(0,0,0,.20), 0 27px 36px rgba(0,0,0,.38);
-  transition: transform .35s ease, box-shadow .35s ease;
+@media (max-width: 480px) {
+  .hero-recognitions { gap: 12px; }
+  .hero-recog-logo-wrap { width: 90px; height: 90px; padding: 14px; }
+  .hero-recog-label { font-size: 13px; }
 }
-.recognitions-section--signature .certificate-card.middle { transform: translateY(-18px) rotateX(2deg); }
-.recognitions-section--signature .certificate-card.back { transform: rotateY(-10deg) rotateX(2deg); }
-.recognitions-section--signature .certificate-card:hover { transform: translateY(-12px) rotateX(0) rotateY(0); box-shadow: 0 34px 46px rgba(0,0,0,.5); }
-.recognitions-section--signature .certificate-card::before,
-.recognitions-section--signature .certificate-card::after { display: none; }
-.recognitions-section--signature .certificate-card img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
-.recognitions-section--signature .recognitions-copy > p { max-width: 830px; margin: 0 auto 35px; text-align: center; color: rgba(255,255,255,.85); font-size: 18px; }
-.recognitions-section--signature .recognition-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.recognitions-section--signature .recognition-item {
-  min-height: 206px;
-  padding: 25px 22px 22px 113px;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 12px;
-  background: rgba(255,255,255,.08);
-  box-shadow: inset 0 1px rgba(255,255,255,.10);
-  backdrop-filter: blur(8px);
-}
-.recognitions-section--signature .recognition-item:hover { background: rgba(255,255,255,.14); transform: translateY(-4px); }
-.recognitions-section--signature .recognition-number { color: #f4c55b; }
-.recognitions-section--signature .recognition-item h3 { color: #fff; font-size: 20px; }
-.recognitions-section--signature .recognition-item p { color: rgba(255,255,255,.78); }
-.recognitions-section--signature .recognition-logo { left: 18px; right: auto; top: 50%; width: 76px; height: 72px; transform: translateY(-50%); filter: drop-shadow(0 5px 10px rgba(0,0,0,.24)); }
 
 /* ==========================================
    SECTION 4: MISSION & VISION
@@ -711,12 +655,8 @@ body {
   .quote-close { right: 30px; bottom: 22px; font-size: 72px; }
   .ceo-right img { width: 320px; }
   .marquee-track { gap: 70px; }
-  .recognitions-layout { grid-template-columns: .8fr 1.2fr; gap: 42px; }
-  .certificate-stage { height: 350px; }
-  .recognitions-section--gallery .certificate-stage { height: auto; }
-  .recognitions-section--gallery .recognition-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .recognitions-section--signature .certificate-stage { height: auto; }
-  .recognitions-section--signature .recognition-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-recognitions { gap: 24px; }
+  .hero-recog-logo-wrap { width: 140px; height: 140px; padding: 22px; }
 }
 
 @media (max-width: 768px) {
@@ -748,12 +688,13 @@ body {
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .locations-grid { grid-template-columns: repeat(2, 1fr); }
   .recognitions-section { padding: 75px 7vw; }
-  .recognitions-heading { margin-bottom: 38px; }
-  .recognitions-layout { grid-template-columns: 1fr; gap: 28px; }
-  .certificate-stage { max-width: 500px; width: 100%; height: 370px; margin: 0 auto; }
-  .recognitions-section--gallery .certificate-stage { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; height: auto; }
+  .recognitions-heading { margin-bottom: 12px; }
+  .hero-recognitions { grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 60px; }
+  .hero-recog-logo-wrap { width: 110px; height: 110px; padding: 18px; }
+  .hero-recog-label { font-size: 15px; }
+  .certificates-row { grid-template-columns: 1fr; max-width: 420px; }
   .recognitions-section--signature { padding: 80px 7vw; }
-  .recognitions-section--signature .certificate-stage { height: auto; padding: 42px 24px; }
+}
 }
 
 @media (max-width: 480px) {
@@ -764,21 +705,10 @@ body {
   .quote-open, .quote-close { font-size: 48px; }
   .ceo-right img { width: 200px; }
   .ceo-text p { font-size: 14px; }
-  .recognition-list { grid-template-columns: 1fr; gap: 4px; }
-  .recognition-item { min-height: auto; }
-  .recognition-logo { width: 64px; }
-  .certificate-stage { height: 310px; }
-  .certificate-card { padding: 19px; }
-  .recognitions-section--gallery .certificate-stage { grid-template-columns: 1fr; max-width: 300px; }
-  .recognitions-section--gallery .certificate-card,
-  .recognitions-section--gallery .certificate-card.middle,
-  .recognitions-section--gallery .certificate-card.back { transform: none; }
-  .recognitions-section--gallery .recognition-list { grid-template-columns: 1fr; }
-  .recognitions-section--signature .certificate-stage { grid-template-columns: 1fr; max-width: 320px; }
-  .recognitions-section--signature .certificate-card,
-  .recognitions-section--signature .certificate-card.middle,
-  .recognitions-section--signature .certificate-card.back { transform: none; }
-  .recognitions-section--signature .recognition-list { grid-template-columns: 1fr; }
+  .hero-recognitions { gap: 12px; }
+  .hero-recog-logo-wrap { width: 90px; height: 90px; padding: 14px; }
+  .hero-recog-label { font-size: 13px; }
+  .certificates-row { grid-template-columns: 1fr; max-width: 320px; }
 }
 </style>
 </head>
@@ -825,57 +755,67 @@ body {
      ========================================== -->
 <section class="recognitions-section recognitions-section--signature" aria-labelledby="recognitions-title">
   <h2 class="recognitions-heading" id="recognitions-title">Our <span class="accent">Recognitions</span> &amp; Achievements</h2>
-  <div class="recognitions-layout">
-    <div class="certificate-stage" aria-label="Layered representation of our certificates">
-      <article class="certificate-card back" aria-hidden="true">
-        <img src="assets/recognitions/image7.png" alt="ISO/IEC 27001:2022 certificate">
-      </article>
-      <article class="certificate-card middle" aria-hidden="true">
-        <img src="assets/recognitions/image5.png" alt="ISO 9001:2015 certificate">
-      </article>
-      <article class="certificate-card front">
-        <img src="assets/recognitions/image9.png" alt="CMMI Maturity Level 3 certificate">
-      </article>
+  <p class="recognitions-intro">Every recognition reflects the standards behind our work: dependable delivery, secure systems, and Odoo expertise that helps businesses scale with confidence.</p>
+
+  <!-- HERO: 3 Featured Recognitions (logos only, no text) -->
+  <div class="hero-recognitions">
+    <div class="hero-recog-item">
+      <div class="hero-recog-logo-wrap">
+        <img src="assets/recognitions/image1.png" alt="Odoo Gold Partner">
+      </div>
+      <span class="hero-recog-label">Odoo Gold Partner</span>
     </div>
-    <div class="recognitions-copy">
-      <p>Every recognition reflects the standards behind our work: dependable delivery, secure systems, and Odoo expertise that helps businesses scale with confidence.</p>
-      <div class="recognition-list">
-        <article class="recognition-item">
-          <img class="recognition-logo" src="assets/recognitions/image1.png" alt="Odoo Gold Partner logo">
-          <span class="recognition-number">01</span>
-          <h3>Odoo Gold Partner</h3>
-          <p>Recognized for deep expertise, successful delivery, and world-class Odoo ERP implementation, customization, migration, training, and support.</p>
-        </article>
-        <article class="recognition-item">
-          <img class="recognition-logo" src="assets/recognitions/image2.png" alt="BOP Alliance logo">
-          <span class="recognition-number">02</span>
-          <h3>BOP Alliance Member</h3>
-          <p>Worldwide Odoo ERP implementation combining centralized project governance with localized compliance and cultural expertise.</p>
-        </article>
-        <article class="recognition-item">
-          <img class="recognition-logo" src="assets/recognitions/image3.png" alt="NASSCOM Certified Member logo">
-          <span class="recognition-number">03</span>
-          <h3>NASSCOM Member</h3>
-          <p>Part of India's premier technology association, reinforcing our commitment to innovation, digital transformation, and global best practices.</p>
-        </article>
-        <article class="recognition-item">
-          <img class="recognition-logo" src="assets/recognitions/iso-9001.png" alt="ISO 9001:2015 certification mark">
-          <span class="recognition-number">04</span>
-          <h3>ISO 9001:2015</h3>
-          <p>Demonstrates a robust Quality Management System focused on consistent service, customer satisfaction, and continual improvement.</p>
-        </article>
-        <article class="recognition-item">
-          <img class="recognition-logo" src="assets/recognitions/image6.png" alt="ISO/IEC 27001:2022 certification mark">
-          <span class="recognition-number">05</span>
-          <h3>ISO/IEC 27001:2022</h3>
-          <p>International information-security standards that safeguard the confidentiality, integrity, and security of client business data.</p>
-        </article>
-        <article class="recognition-item">
-          <img class="recognition-logo" src="assets/recognitions/cmmi-level3.png" alt="CMMI Level 3 logo">
-          <span class="recognition-number">06</span>
-          <h3>CMMI Level 3</h3>
-          <p>Mature project-management and software-development practices that support predictable, high-quality ERP delivery.</p>
-        </article>
+    <div class="hero-recog-item">
+      <div class="hero-recog-logo-wrap">
+        <img src="assets/recognitions/image2.png" alt="BOP Alliance Member">
+      </div>
+      <span class="hero-recog-label">BOP Alliance Member</span>
+    </div>
+    <div class="hero-recog-item">
+      <div class="hero-recog-logo-wrap">
+        <img src="assets/recognitions/image3.png" alt="NASSCOM Member">
+      </div>
+      <span class="hero-recog-label">NASSCOM Member</span>
+    </div>
+  </div>
+
+  <!-- CERTIFICATES: 3 certification cards with text -->
+  <h3 class="certificates-subtitle">Our <span class="accent">Certifications</span></h3>
+  <div class="certificates-row">
+    <div class="cert-detail-card">
+      <div class="cert-detail-img">
+        <img src="assets/recognitions/image5.png" alt="ISO 9001:2015 certificate">
+      </div>
+      <div class="cert-detail-info">
+        <div class="cert-detail-header">
+          <img class="cert-detail-logo" src="assets/recognitions/iso-9001.png" alt="ISO 9001">
+          <h4>ISO 9001:2015</h4>
+        </div>
+        <p>Demonstrates a robust Quality Management System focused on consistent service, customer satisfaction, and continual improvement.</p>
+      </div>
+    </div>
+    <div class="cert-detail-card">
+      <div class="cert-detail-img">
+        <img src="assets/recognitions/image7.png" alt="ISO/IEC 27001:2022 certificate">
+      </div>
+      <div class="cert-detail-info">
+        <div class="cert-detail-header">
+          <img class="cert-detail-logo" src="assets/recognitions/image6.png" alt="ISO 27001">
+          <h4>ISO/IEC 27001:2022</h4>
+        </div>
+        <p>International information-security standards that safeguard the confidentiality, integrity, and security of client business data.</p>
+      </div>
+    </div>
+    <div class="cert-detail-card">
+      <div class="cert-detail-img">
+        <img src="assets/recognitions/image9.png" alt="CMMI Level 3 certificate">
+      </div>
+      <div class="cert-detail-info">
+        <div class="cert-detail-header">
+          <img class="cert-detail-logo" src="assets/recognitions/cmmi-level3.png" alt="CMMI Level 3">
+          <h4>CMMI Level 3</h4>
+        </div>
+        <p>Mature project-management and software-development practices that support predictable, high-quality ERP delivery.</p>
       </div>
     </div>
   </div>
