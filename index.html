@@ -136,36 +136,37 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
+  padding: 40px 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  transition: all .35s ease;
+}
+.hero-recog-item:hover {
+  background: rgba(255,255,255,.12);
+  border-color: rgba(244,197,91,.35);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0,0,0,.35);
 }
 .hero-recog-logo-wrap {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.95);
-  border: 3px solid rgba(244,197,91,.6);
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px;
-  transition: all .35s ease;
-}
-.hero-recog-logo-wrap:hover {
-  background: rgba(255,255,255,.22);
-  border-color: #f4c55b;
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.35);
 }
 .hero-recog-logo-wrap img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  max-width: 200px;
+  height: 80px;
   object-fit: contain;
 }
 .hero-recog-label {
   color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: .02em;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-align: center;
 }
 
 /* CERTIFICATES section */
@@ -258,8 +259,9 @@ body {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero-recognitions { gap: 24px; }
-  .hero-recog-logo-wrap { width: 140px; height: 140px; padding: 22px; }
+  .hero-recognitions { gap: 20px; }
+  .hero-recog-item { padding: 30px 14px; }
+  .hero-recog-logo-wrap img { max-width: 150px; height: 60px; }
 }
 @media (max-width: 768px) {
   .recognitions-section { padding: 75px 7vw; }
@@ -270,8 +272,9 @@ body {
 }
 @media (max-width: 480px) {
   .hero-recognitions { gap: 12px; }
-  .hero-recog-logo-wrap { width: 90px; height: 90px; padding: 14px; }
-  .hero-recog-label { font-size: 13px; }
+  .hero-recog-item { padding: 20px 8px; }
+  .hero-recog-logo-wrap img { max-width: 100px; height: 40px; }
+  .hero-recog-label { font-size: 12px; }
 }
 
 /* ==========================================
@@ -686,9 +689,10 @@ body {
   .locations-grid { grid-template-columns: repeat(2, 1fr); }
   .recognitions-section { padding: 75px 7vw; }
   .recognitions-heading { margin-bottom: 12px; }
-  .hero-recognitions { grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 60px; }
-  .hero-recog-logo-wrap { width: 110px; height: 110px; padding: 18px; }
-  .hero-recog-label { font-size: 15px; }
+  .hero-recognitions { gap: 16px; margin-bottom: 60px; }
+  .hero-recog-item { padding: 24px 10px; }
+  .hero-recog-logo-wrap img { max-width: 120px; height: 48px; }
+  .hero-recog-label { font-size: 14px; }
   .certificates-row { grid-template-columns: 1fr; max-width: 420px; }
   .recognitions-section--signature { padding: 80px 7vw; }
 }
