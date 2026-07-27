@@ -168,6 +168,15 @@ body {
   letter-spacing: .03em;
   text-align: center;
 }
+.hero-recog-desc {
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 4px;
+  max-width: 320px;
+}
 
 /* CERTIFICATES section */
 .certificates-subtitle {
@@ -254,22 +263,27 @@ body {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero-recognitions { gap: 20px; }
-  .hero-recog-item { padding: 30px 14px; }
-  .hero-recog-logo-wrap img { max-width: 150px; height: 60px; }
+  .hero-recognitions { gap: 24px; }
+  .hero-recog-item { padding: 30px 18px; }
+  .hero-recog-logo-wrap img { max-width: 160px; height: 64px; }
+  .hero-recog-desc { font-size: 13px; }
 }
 @media (max-width: 768px) {
   .recognitions-section { padding: 75px 7vw; }
-  .hero-recognitions { grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 60px; }
-  .hero-recog-logo-wrap { width: 110px; height: 110px; padding: 18px; }
-  .hero-recog-label { font-size: 15px; }
+  .hero-recognitions { grid-template-columns: 1fr; gap: 28px; max-width: 380px; margin: 0 auto 60px; }
+  .hero-recog-item { padding: 36px 28px; gap: 18px; }
+  .hero-recog-logo-wrap { width: auto; height: auto; padding: 0; }
+  .hero-recog-logo-wrap img { max-width: 160px; height: 64px; }
+  .hero-recog-label { font-size: 18px; }
+  .hero-recog-desc { font-size: 14px; }
   .certificates-row { gap: 20px; }
 }
 @media (max-width: 480px) {
-  .hero-recognitions { gap: 12px; }
-  .hero-recog-item { padding: 20px 8px; }
-  .hero-recog-logo-wrap img { max-width: 100px; height: 40px; }
-  .hero-recog-label { font-size: 12px; }
+  .hero-recognitions { gap: 20px; max-width: 320px; }
+  .hero-recog-item { padding: 28px 20px; }
+  .hero-recog-logo-wrap img { max-width: 130px; height: 52px; }
+  .hero-recog-label { font-size: 16px; }
+  .hero-recog-desc { font-size: 13px; }
 }
 
 /* ==========================================
@@ -684,10 +698,11 @@ body {
   .locations-grid { grid-template-columns: repeat(2, 1fr); }
   .recognitions-section { padding: 75px 7vw; }
   .recognitions-heading { margin-bottom: 12px; }
-  .hero-recognitions { gap: 16px; margin-bottom: 60px; }
-  .hero-recog-item { padding: 24px 10px; }
-  .hero-recog-logo-wrap img { max-width: 120px; height: 48px; }
-  .hero-recog-label { font-size: 14px; }
+  .hero-recognitions { grid-template-columns: 1fr; gap: 28px; max-width: 380px; margin: 0 auto 60px; }
+  .hero-recog-item { padding: 36px 28px; gap: 18px; }
+  .hero-recog-logo-wrap img { max-width: 160px; height: 64px; }
+  .hero-recog-label { font-size: 18px; }
+  .hero-recog-desc { font-size: 14px; }
   .certificates-row { gap: 20px; }
   .recognitions-section--signature { padding: 80px 7vw; }
 }
@@ -701,9 +716,12 @@ body {
   .quote-open, .quote-close { font-size: 48px; }
   .ceo-right img { width: 200px; }
   .ceo-text p { font-size: 14px; }
-  .hero-recognitions { gap: 12px; }
-  .hero-recog-logo-wrap { width: 90px; height: 90px; padding: 14px; }
-  .hero-recog-label { font-size: 13px; }
+  .hero-recognitions { gap: 20px; max-width: 320px; }
+  .hero-recog-item { padding: 28px 20px; }
+  .hero-recog-logo-wrap { width: auto; height: auto; padding: 0; }
+  .hero-recog-logo-wrap img { max-width: 130px; height: 52px; }
+  .hero-recog-label { font-size: 16px; }
+  .hero-recog-desc { font-size: 13px; }
   .certificates-row { gap: 20px; }
 }
 </style>
@@ -753,25 +771,28 @@ body {
   <h2 class="recognitions-heading" id="recognitions-title">Our <span class="accent">Recognitions</span> &amp; Achievements</h2>
   <p class="recognitions-intro">Every recognition reflects the standards behind our work: dependable delivery, secure systems, and Odoo expertise that helps businesses scale with confidence.</p>
 
-  <!-- HERO: 3 Featured Recognitions (logos only, no text) -->
+  <!-- HERO: 3 Featured Recognitions -->
   <div class="hero-recognitions">
     <div class="hero-recog-item">
       <div class="hero-recog-logo-wrap">
         <img src="assets/recognitions/image1.png" alt="Odoo Gold Partner">
       </div>
       <span class="hero-recog-label">Odoo Gold Partner</span>
+      <p class="hero-recog-desc">As an Odoo Gold Partner, we are recognized for our deep expertise, successful project delivery, and commitment to providing world-class Odoo ERP implementation, customization, migration, and support.</p>
     </div>
     <div class="hero-recog-item">
       <div class="hero-recog-logo-wrap">
         <img src="assets/recognitions/image2.png" alt="BOP Alliance Member">
       </div>
       <span class="hero-recog-label">BOP Alliance Member</span>
+      <p class="hero-recog-desc">Being a Member of the BOP Alliance, we execute worldwide Odoo ERP implementations by combining centralized project governance with deep, localized compliance and cultural expertise.</p>
     </div>
     <div class="hero-recog-item">
       <div class="hero-recog-logo-wrap">
         <img src="assets/recognitions/image3.png" alt="NASSCOM Member">
       </div>
       <span class="hero-recog-label">NASSCOM Member</span>
+      <p class="hero-recog-desc">As a proud NASSCOM Member, we are part of India's premier technology industry association, reinforcing our commitment to innovation, digital transformation, and global best practices in enterprise technology.</p>
     </div>
   </div>
 
