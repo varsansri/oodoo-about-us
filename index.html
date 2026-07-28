@@ -142,8 +142,20 @@ body {
   border-radius: 16px;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.10);
-  transition: all .35s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease, background .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
+.hero-recog-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-recog-item:nth-child(1) { transition-delay: 0s; }
+.hero-recog-item:nth-child(2) { transition-delay: 0.15s; }
+.hero-recog-item:nth-child(3) { transition-delay: 0.3s; }
+.hero-recog-item.visible:nth-child(1) { transition-delay: 0s; }
+.hero-recog-item.visible:nth-child(2) { transition-delay: 0.15s; }
+.hero-recog-item.visible:nth-child(3) { transition-delay: 0.3s; }
 .hero-recog-item:hover {
   background: rgba(255,255,255,.12);
   border-color: rgba(244,197,91,.35);
@@ -1035,6 +1047,19 @@ body {
 <div style="text-align:center; padding:40px; color:#999; font-size:13px; margin-top:50px; border-top:1px solid rgba(0,0,0,0.1);">
   ISO 9001 | ISO 27001 Certified &copy; 2026 Oodu Implementers Private Limited. All Rights Reserved.
 </div>
+
+<script>
+  (function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.hero-recog-item').forEach(el => observer.observe(el));
+  })();
+</script>
 
 </body>
 </html>
