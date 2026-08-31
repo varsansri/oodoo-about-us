@@ -1177,13 +1177,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <body data-rsssl=1>
 
 <a href="https://www.odooimplementers.com/contact-us/" class="btn-services">Contact Us</a>
-<div id="oi-preview-bar" style="position:fixed;z-index:2147483647;top:0;left:0;right:0;
-background:#743c5f;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;
-padding:8px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.25)">
-PREVIEW &mdash; not the live site. Homepage &mdash; 2 new videos + 6 real testimonials
-<a href="index.html" style="color:#fff;text-decoration:underline;margin-left:10px">all previews</a>
-</div><script>document.addEventListener('DOMContentLoaded',function(){
-document.body.style.paddingTop='34px';});</script></body>
+
+<style id="oi-preview-css">
+ #oi-preview-bar{position:fixed;z-index:2147483647;top:0;left:0;right:0;
+  background:#743c5f;color:#fff;font:600 13px/1.4 system-ui,-apple-system,sans-serif;
+  padding:7px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.3);
+  display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+ #oi-preview-bar .oi-t{opacity:.9;margin-right:4px}
+ #oi-preview-bar button,#oi-preview-bar a.oi-b{background:#fff;color:#743c5f;border:0;
+  border-radius:999px;padding:5px 13px;font:700 12px/1 system-ui,sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-block}
+ #oi-preview-bar button:hover,#oi-preview-bar a.oi-b:hover{background:#ffe9c9}
+ .oi-changed{outline:3px dashed #743c5f !important;outline-offset:10px !important;
+  border-radius:6px;scroll-margin-top:90px}
+ .oi-tag{position:absolute;transform:translateY(-100%);background:#743c5f;color:#fff;
+  font:700 11px/1 system-ui,sans-serif;padding:5px 10px;border-radius:5px 5px 0 0;
+  margin-top:-12px;z-index:9999;white-space:nowrap}
+</style>
+<script>
+(function(){
+ var CHANGES = [{"id": "69838d5", "label": "1. New videos", "tag": "CHANGED - Autoprint + Ramraj Cotton videos added"}, {"id": "dd9a1f3", "label": "2. Testimonial slider", "tag": "CHANGED - 6 real testimonials with logos (was Taiyo repeated 3x)"}];
+ function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  document.body.style.paddingTop='40px';
+
+  // hide the WhatsApp plugin's "invalid domain" complaint - it only appears
+  // because this preview is not served from odooimplementers.com
+  document.querySelectorAll('div,span,p').forEach(function(n){
+    if(n.children.length===0 && /invalid domain/i.test(n.textContent||'')){
+      var b=n; for(var i=0;i<3&&b.parentElement;i++){b=b.parentElement;}
+      b.style.display='none';
+    }
+  });
+
+  var bar=document.createElement('div');
+  bar.id='oi-preview-bar';
+  var t=document.createElement('span');
+  t.className='oi-t';
+  t.innerHTML='PREVIEW \u2014 not the live site. Jump to what changed:';
+  bar.appendChild(t);
+
+  CHANGES.forEach(function(c){
+   var el=document.querySelector('.elementor-element-'+c.id);
+   if(!el){return;}
+   el.classList.add('oi-changed');
+   var tag=document.createElement('div');
+   tag.className='oi-tag';
+   tag.textContent=c.tag;
+   if(getComputedStyle(el).position==='static'){el.style.position='relative';}
+   el.appendChild(tag);
+   var b=document.createElement('button');
+   b.textContent=c.label;
+   b.onclick=function(){el.scrollIntoView({behavior:'smooth',block:'start'});};
+   bar.appendChild(b);
+  });
+
+  var a=document.createElement('a');
+  a.className='oi-b'; a.href='index.html'; a.textContent='all pages';
+  bar.appendChild(a);
+  document.body.appendChild(bar);
+
+  // if the page was opened with #change, go straight there
+  if(location.hash==='#change'&&CHANGES.length){
+   var f=document.querySelector('.elementor-element-'+CHANGES[0].id);
+   if(f){setTimeout(function(){f.scrollIntoView({block:'start'});},400);}
+  }
+ });
+})();
+</script></body>
 </html>				</div>
 				</div>
 				</div>
@@ -1282,13 +1343,74 @@ document.body.style.paddingTop='34px';});</script></body>
 
 <a href="https://www.odooimplementers.com/contact-us/" class="btn-services-new">Contact Us</a>
 
-<div id="oi-preview-bar" style="position:fixed;z-index:2147483647;top:0;left:0;right:0;
-background:#743c5f;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;
-padding:8px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.25)">
-PREVIEW &mdash; not the live site. Homepage &mdash; 2 new videos + 6 real testimonials
-<a href="index.html" style="color:#fff;text-decoration:underline;margin-left:10px">all previews</a>
-</div><script>document.addEventListener('DOMContentLoaded',function(){
-document.body.style.paddingTop='34px';});</script></body>
+
+<style id="oi-preview-css">
+ #oi-preview-bar{position:fixed;z-index:2147483647;top:0;left:0;right:0;
+  background:#743c5f;color:#fff;font:600 13px/1.4 system-ui,-apple-system,sans-serif;
+  padding:7px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.3);
+  display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+ #oi-preview-bar .oi-t{opacity:.9;margin-right:4px}
+ #oi-preview-bar button,#oi-preview-bar a.oi-b{background:#fff;color:#743c5f;border:0;
+  border-radius:999px;padding:5px 13px;font:700 12px/1 system-ui,sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-block}
+ #oi-preview-bar button:hover,#oi-preview-bar a.oi-b:hover{background:#ffe9c9}
+ .oi-changed{outline:3px dashed #743c5f !important;outline-offset:10px !important;
+  border-radius:6px;scroll-margin-top:90px}
+ .oi-tag{position:absolute;transform:translateY(-100%);background:#743c5f;color:#fff;
+  font:700 11px/1 system-ui,sans-serif;padding:5px 10px;border-radius:5px 5px 0 0;
+  margin-top:-12px;z-index:9999;white-space:nowrap}
+</style>
+<script>
+(function(){
+ var CHANGES = [{"id": "69838d5", "label": "1. New videos", "tag": "CHANGED - Autoprint + Ramraj Cotton videos added"}, {"id": "dd9a1f3", "label": "2. Testimonial slider", "tag": "CHANGED - 6 real testimonials with logos (was Taiyo repeated 3x)"}];
+ function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  document.body.style.paddingTop='40px';
+
+  // hide the WhatsApp plugin's "invalid domain" complaint - it only appears
+  // because this preview is not served from odooimplementers.com
+  document.querySelectorAll('div,span,p').forEach(function(n){
+    if(n.children.length===0 && /invalid domain/i.test(n.textContent||'')){
+      var b=n; for(var i=0;i<3&&b.parentElement;i++){b=b.parentElement;}
+      b.style.display='none';
+    }
+  });
+
+  var bar=document.createElement('div');
+  bar.id='oi-preview-bar';
+  var t=document.createElement('span');
+  t.className='oi-t';
+  t.innerHTML='PREVIEW \u2014 not the live site. Jump to what changed:';
+  bar.appendChild(t);
+
+  CHANGES.forEach(function(c){
+   var el=document.querySelector('.elementor-element-'+c.id);
+   if(!el){return;}
+   el.classList.add('oi-changed');
+   var tag=document.createElement('div');
+   tag.className='oi-tag';
+   tag.textContent=c.tag;
+   if(getComputedStyle(el).position==='static'){el.style.position='relative';}
+   el.appendChild(tag);
+   var b=document.createElement('button');
+   b.textContent=c.label;
+   b.onclick=function(){el.scrollIntoView({behavior:'smooth',block:'start'});};
+   bar.appendChild(b);
+  });
+
+  var a=document.createElement('a');
+  a.className='oi-b'; a.href='index.html'; a.textContent='all pages';
+  bar.appendChild(a);
+  document.body.appendChild(bar);
+
+  // if the page was opened with #change, go straight there
+  if(location.hash==='#change'&&CHANGES.length){
+   var f=document.querySelector('.elementor-element-'+CHANGES[0].id);
+   if(f){setTimeout(function(){f.scrollIntoView({block:'start'});},400);}
+  }
+ });
+})();
+</script></body>
 </html>				</div>
 				</div>
 				</div>
@@ -1457,13 +1579,74 @@ document.body.style.paddingTop='34px';});</script></body>
 
 <a href="https://www.odooimplementers.com/contact-us/" class="btn-services">Contact Us</a>
 
-<div id="oi-preview-bar" style="position:fixed;z-index:2147483647;top:0;left:0;right:0;
-background:#743c5f;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;
-padding:8px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.25)">
-PREVIEW &mdash; not the live site. Homepage &mdash; 2 new videos + 6 real testimonials
-<a href="index.html" style="color:#fff;text-decoration:underline;margin-left:10px">all previews</a>
-</div><script>document.addEventListener('DOMContentLoaded',function(){
-document.body.style.paddingTop='34px';});</script></body>
+
+<style id="oi-preview-css">
+ #oi-preview-bar{position:fixed;z-index:2147483647;top:0;left:0;right:0;
+  background:#743c5f;color:#fff;font:600 13px/1.4 system-ui,-apple-system,sans-serif;
+  padding:7px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.3);
+  display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+ #oi-preview-bar .oi-t{opacity:.9;margin-right:4px}
+ #oi-preview-bar button,#oi-preview-bar a.oi-b{background:#fff;color:#743c5f;border:0;
+  border-radius:999px;padding:5px 13px;font:700 12px/1 system-ui,sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-block}
+ #oi-preview-bar button:hover,#oi-preview-bar a.oi-b:hover{background:#ffe9c9}
+ .oi-changed{outline:3px dashed #743c5f !important;outline-offset:10px !important;
+  border-radius:6px;scroll-margin-top:90px}
+ .oi-tag{position:absolute;transform:translateY(-100%);background:#743c5f;color:#fff;
+  font:700 11px/1 system-ui,sans-serif;padding:5px 10px;border-radius:5px 5px 0 0;
+  margin-top:-12px;z-index:9999;white-space:nowrap}
+</style>
+<script>
+(function(){
+ var CHANGES = [{"id": "69838d5", "label": "1. New videos", "tag": "CHANGED - Autoprint + Ramraj Cotton videos added"}, {"id": "dd9a1f3", "label": "2. Testimonial slider", "tag": "CHANGED - 6 real testimonials with logos (was Taiyo repeated 3x)"}];
+ function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  document.body.style.paddingTop='40px';
+
+  // hide the WhatsApp plugin's "invalid domain" complaint - it only appears
+  // because this preview is not served from odooimplementers.com
+  document.querySelectorAll('div,span,p').forEach(function(n){
+    if(n.children.length===0 && /invalid domain/i.test(n.textContent||'')){
+      var b=n; for(var i=0;i<3&&b.parentElement;i++){b=b.parentElement;}
+      b.style.display='none';
+    }
+  });
+
+  var bar=document.createElement('div');
+  bar.id='oi-preview-bar';
+  var t=document.createElement('span');
+  t.className='oi-t';
+  t.innerHTML='PREVIEW \u2014 not the live site. Jump to what changed:';
+  bar.appendChild(t);
+
+  CHANGES.forEach(function(c){
+   var el=document.querySelector('.elementor-element-'+c.id);
+   if(!el){return;}
+   el.classList.add('oi-changed');
+   var tag=document.createElement('div');
+   tag.className='oi-tag';
+   tag.textContent=c.tag;
+   if(getComputedStyle(el).position==='static'){el.style.position='relative';}
+   el.appendChild(tag);
+   var b=document.createElement('button');
+   b.textContent=c.label;
+   b.onclick=function(){el.scrollIntoView({behavior:'smooth',block:'start'});};
+   bar.appendChild(b);
+  });
+
+  var a=document.createElement('a');
+  a.className='oi-b'; a.href='index.html'; a.textContent='all pages';
+  bar.appendChild(a);
+  document.body.appendChild(bar);
+
+  // if the page was opened with #change, go straight there
+  if(location.hash==='#change'&&CHANGES.length){
+   var f=document.querySelector('.elementor-element-'+CHANGES[0].id);
+   if(f){setTimeout(function(){f.scrollIntoView({block:'start'});},400);}
+  }
+ });
+})();
+</script></body>
 </html>				</div>
 				</div>
 				</div>
@@ -1629,13 +1812,74 @@ document.body.style.paddingTop='34px';});</script></body>
 
 </div>
 
-<div id="oi-preview-bar" style="position:fixed;z-index:2147483647;top:0;left:0;right:0;
-background:#743c5f;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;
-padding:8px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.25)">
-PREVIEW &mdash; not the live site. Homepage &mdash; 2 new videos + 6 real testimonials
-<a href="index.html" style="color:#fff;text-decoration:underline;margin-left:10px">all previews</a>
-</div><script>document.addEventListener('DOMContentLoaded',function(){
-document.body.style.paddingTop='34px';});</script></body>
+
+<style id="oi-preview-css">
+ #oi-preview-bar{position:fixed;z-index:2147483647;top:0;left:0;right:0;
+  background:#743c5f;color:#fff;font:600 13px/1.4 system-ui,-apple-system,sans-serif;
+  padding:7px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.3);
+  display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+ #oi-preview-bar .oi-t{opacity:.9;margin-right:4px}
+ #oi-preview-bar button,#oi-preview-bar a.oi-b{background:#fff;color:#743c5f;border:0;
+  border-radius:999px;padding:5px 13px;font:700 12px/1 system-ui,sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-block}
+ #oi-preview-bar button:hover,#oi-preview-bar a.oi-b:hover{background:#ffe9c9}
+ .oi-changed{outline:3px dashed #743c5f !important;outline-offset:10px !important;
+  border-radius:6px;scroll-margin-top:90px}
+ .oi-tag{position:absolute;transform:translateY(-100%);background:#743c5f;color:#fff;
+  font:700 11px/1 system-ui,sans-serif;padding:5px 10px;border-radius:5px 5px 0 0;
+  margin-top:-12px;z-index:9999;white-space:nowrap}
+</style>
+<script>
+(function(){
+ var CHANGES = [{"id": "69838d5", "label": "1. New videos", "tag": "CHANGED - Autoprint + Ramraj Cotton videos added"}, {"id": "dd9a1f3", "label": "2. Testimonial slider", "tag": "CHANGED - 6 real testimonials with logos (was Taiyo repeated 3x)"}];
+ function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  document.body.style.paddingTop='40px';
+
+  // hide the WhatsApp plugin's "invalid domain" complaint - it only appears
+  // because this preview is not served from odooimplementers.com
+  document.querySelectorAll('div,span,p').forEach(function(n){
+    if(n.children.length===0 && /invalid domain/i.test(n.textContent||'')){
+      var b=n; for(var i=0;i<3&&b.parentElement;i++){b=b.parentElement;}
+      b.style.display='none';
+    }
+  });
+
+  var bar=document.createElement('div');
+  bar.id='oi-preview-bar';
+  var t=document.createElement('span');
+  t.className='oi-t';
+  t.innerHTML='PREVIEW \u2014 not the live site. Jump to what changed:';
+  bar.appendChild(t);
+
+  CHANGES.forEach(function(c){
+   var el=document.querySelector('.elementor-element-'+c.id);
+   if(!el){return;}
+   el.classList.add('oi-changed');
+   var tag=document.createElement('div');
+   tag.className='oi-tag';
+   tag.textContent=c.tag;
+   if(getComputedStyle(el).position==='static'){el.style.position='relative';}
+   el.appendChild(tag);
+   var b=document.createElement('button');
+   b.textContent=c.label;
+   b.onclick=function(){el.scrollIntoView({behavior:'smooth',block:'start'});};
+   bar.appendChild(b);
+  });
+
+  var a=document.createElement('a');
+  a.className='oi-b'; a.href='index.html'; a.textContent='all pages';
+  bar.appendChild(a);
+  document.body.appendChild(bar);
+
+  // if the page was opened with #change, go straight there
+  if(location.hash==='#change'&&CHANGES.length){
+   var f=document.querySelector('.elementor-element-'+CHANGES[0].id);
+   if(f){setTimeout(function(){f.scrollIntoView({block:'start'});},400);}
+  }
+ });
+})();
+</script></body>
 </html>
 				</div>
 				</div>
@@ -1702,13 +1946,74 @@ document.body.style.paddingTop='34px';});</script></body>
 
 <a href="#services" class="btn-services">View all Services</a>
 
-<div id="oi-preview-bar" style="position:fixed;z-index:2147483647;top:0;left:0;right:0;
-background:#743c5f;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;
-padding:8px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.25)">
-PREVIEW &mdash; not the live site. Homepage &mdash; 2 new videos + 6 real testimonials
-<a href="index.html" style="color:#fff;text-decoration:underline;margin-left:10px">all previews</a>
-</div><script>document.addEventListener('DOMContentLoaded',function(){
-document.body.style.paddingTop='34px';});</script></body>
+
+<style id="oi-preview-css">
+ #oi-preview-bar{position:fixed;z-index:2147483647;top:0;left:0;right:0;
+  background:#743c5f;color:#fff;font:600 13px/1.4 system-ui,-apple-system,sans-serif;
+  padding:7px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.3);
+  display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+ #oi-preview-bar .oi-t{opacity:.9;margin-right:4px}
+ #oi-preview-bar button,#oi-preview-bar a.oi-b{background:#fff;color:#743c5f;border:0;
+  border-radius:999px;padding:5px 13px;font:700 12px/1 system-ui,sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-block}
+ #oi-preview-bar button:hover,#oi-preview-bar a.oi-b:hover{background:#ffe9c9}
+ .oi-changed{outline:3px dashed #743c5f !important;outline-offset:10px !important;
+  border-radius:6px;scroll-margin-top:90px}
+ .oi-tag{position:absolute;transform:translateY(-100%);background:#743c5f;color:#fff;
+  font:700 11px/1 system-ui,sans-serif;padding:5px 10px;border-radius:5px 5px 0 0;
+  margin-top:-12px;z-index:9999;white-space:nowrap}
+</style>
+<script>
+(function(){
+ var CHANGES = [{"id": "69838d5", "label": "1. New videos", "tag": "CHANGED - Autoprint + Ramraj Cotton videos added"}, {"id": "dd9a1f3", "label": "2. Testimonial slider", "tag": "CHANGED - 6 real testimonials with logos (was Taiyo repeated 3x)"}];
+ function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  document.body.style.paddingTop='40px';
+
+  // hide the WhatsApp plugin's "invalid domain" complaint - it only appears
+  // because this preview is not served from odooimplementers.com
+  document.querySelectorAll('div,span,p').forEach(function(n){
+    if(n.children.length===0 && /invalid domain/i.test(n.textContent||'')){
+      var b=n; for(var i=0;i<3&&b.parentElement;i++){b=b.parentElement;}
+      b.style.display='none';
+    }
+  });
+
+  var bar=document.createElement('div');
+  bar.id='oi-preview-bar';
+  var t=document.createElement('span');
+  t.className='oi-t';
+  t.innerHTML='PREVIEW \u2014 not the live site. Jump to what changed:';
+  bar.appendChild(t);
+
+  CHANGES.forEach(function(c){
+   var el=document.querySelector('.elementor-element-'+c.id);
+   if(!el){return;}
+   el.classList.add('oi-changed');
+   var tag=document.createElement('div');
+   tag.className='oi-tag';
+   tag.textContent=c.tag;
+   if(getComputedStyle(el).position==='static'){el.style.position='relative';}
+   el.appendChild(tag);
+   var b=document.createElement('button');
+   b.textContent=c.label;
+   b.onclick=function(){el.scrollIntoView({behavior:'smooth',block:'start'});};
+   bar.appendChild(b);
+  });
+
+  var a=document.createElement('a');
+  a.className='oi-b'; a.href='index.html'; a.textContent='all pages';
+  bar.appendChild(a);
+  document.body.appendChild(bar);
+
+  // if the page was opened with #change, go straight there
+  if(location.hash==='#change'&&CHANGES.length){
+   var f=document.querySelector('.elementor-element-'+CHANGES[0].id);
+   if(f){setTimeout(function(){f.scrollIntoView({block:'start'});},400);}
+  }
+ });
+})();
+</script></body>
 </html>				</div>
 				</div>
 					</div>
@@ -2186,13 +2491,74 @@ document.body.style.paddingTop='34px';});</script></body>
 </script>
 
 
-<div id="oi-preview-bar" style="position:fixed;z-index:2147483647;top:0;left:0;right:0;
-background:#743c5f;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;
-padding:8px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.25)">
-PREVIEW &mdash; not the live site. Homepage &mdash; 2 new videos + 6 real testimonials
-<a href="index.html" style="color:#fff;text-decoration:underline;margin-left:10px">all previews</a>
-</div><script>document.addEventListener('DOMContentLoaded',function(){
-document.body.style.paddingTop='34px';});</script></body>
+
+<style id="oi-preview-css">
+ #oi-preview-bar{position:fixed;z-index:2147483647;top:0;left:0;right:0;
+  background:#743c5f;color:#fff;font:600 13px/1.4 system-ui,-apple-system,sans-serif;
+  padding:7px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.3);
+  display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+ #oi-preview-bar .oi-t{opacity:.9;margin-right:4px}
+ #oi-preview-bar button,#oi-preview-bar a.oi-b{background:#fff;color:#743c5f;border:0;
+  border-radius:999px;padding:5px 13px;font:700 12px/1 system-ui,sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-block}
+ #oi-preview-bar button:hover,#oi-preview-bar a.oi-b:hover{background:#ffe9c9}
+ .oi-changed{outline:3px dashed #743c5f !important;outline-offset:10px !important;
+  border-radius:6px;scroll-margin-top:90px}
+ .oi-tag{position:absolute;transform:translateY(-100%);background:#743c5f;color:#fff;
+  font:700 11px/1 system-ui,sans-serif;padding:5px 10px;border-radius:5px 5px 0 0;
+  margin-top:-12px;z-index:9999;white-space:nowrap}
+</style>
+<script>
+(function(){
+ var CHANGES = [{"id": "69838d5", "label": "1. New videos", "tag": "CHANGED - Autoprint + Ramraj Cotton videos added"}, {"id": "dd9a1f3", "label": "2. Testimonial slider", "tag": "CHANGED - 6 real testimonials with logos (was Taiyo repeated 3x)"}];
+ function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  document.body.style.paddingTop='40px';
+
+  // hide the WhatsApp plugin's "invalid domain" complaint - it only appears
+  // because this preview is not served from odooimplementers.com
+  document.querySelectorAll('div,span,p').forEach(function(n){
+    if(n.children.length===0 && /invalid domain/i.test(n.textContent||'')){
+      var b=n; for(var i=0;i<3&&b.parentElement;i++){b=b.parentElement;}
+      b.style.display='none';
+    }
+  });
+
+  var bar=document.createElement('div');
+  bar.id='oi-preview-bar';
+  var t=document.createElement('span');
+  t.className='oi-t';
+  t.innerHTML='PREVIEW \u2014 not the live site. Jump to what changed:';
+  bar.appendChild(t);
+
+  CHANGES.forEach(function(c){
+   var el=document.querySelector('.elementor-element-'+c.id);
+   if(!el){return;}
+   el.classList.add('oi-changed');
+   var tag=document.createElement('div');
+   tag.className='oi-tag';
+   tag.textContent=c.tag;
+   if(getComputedStyle(el).position==='static'){el.style.position='relative';}
+   el.appendChild(tag);
+   var b=document.createElement('button');
+   b.textContent=c.label;
+   b.onclick=function(){el.scrollIntoView({behavior:'smooth',block:'start'});};
+   bar.appendChild(b);
+  });
+
+  var a=document.createElement('a');
+  a.className='oi-b'; a.href='index.html'; a.textContent='all pages';
+  bar.appendChild(a);
+  document.body.appendChild(bar);
+
+  // if the page was opened with #change, go straight there
+  if(location.hash==='#change'&&CHANGES.length){
+   var f=document.querySelector('.elementor-element-'+CHANGES[0].id);
+   if(f){setTimeout(function(){f.scrollIntoView({block:'start'});},400);}
+  }
+ });
+})();
+</script></body>
 </html>
 				</div>
 				</div>
@@ -2438,13 +2804,74 @@ body {
   </div>
 </div>
 
-<div id="oi-preview-bar" style="position:fixed;z-index:2147483647;top:0;left:0;right:0;
-background:#743c5f;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;
-padding:8px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.25)">
-PREVIEW &mdash; not the live site. Homepage &mdash; 2 new videos + 6 real testimonials
-<a href="index.html" style="color:#fff;text-decoration:underline;margin-left:10px">all previews</a>
-</div><script>document.addEventListener('DOMContentLoaded',function(){
-document.body.style.paddingTop='34px';});</script></body>
+
+<style id="oi-preview-css">
+ #oi-preview-bar{position:fixed;z-index:2147483647;top:0;left:0;right:0;
+  background:#743c5f;color:#fff;font:600 13px/1.4 system-ui,-apple-system,sans-serif;
+  padding:7px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.3);
+  display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+ #oi-preview-bar .oi-t{opacity:.9;margin-right:4px}
+ #oi-preview-bar button,#oi-preview-bar a.oi-b{background:#fff;color:#743c5f;border:0;
+  border-radius:999px;padding:5px 13px;font:700 12px/1 system-ui,sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-block}
+ #oi-preview-bar button:hover,#oi-preview-bar a.oi-b:hover{background:#ffe9c9}
+ .oi-changed{outline:3px dashed #743c5f !important;outline-offset:10px !important;
+  border-radius:6px;scroll-margin-top:90px}
+ .oi-tag{position:absolute;transform:translateY(-100%);background:#743c5f;color:#fff;
+  font:700 11px/1 system-ui,sans-serif;padding:5px 10px;border-radius:5px 5px 0 0;
+  margin-top:-12px;z-index:9999;white-space:nowrap}
+</style>
+<script>
+(function(){
+ var CHANGES = [{"id": "69838d5", "label": "1. New videos", "tag": "CHANGED - Autoprint + Ramraj Cotton videos added"}, {"id": "dd9a1f3", "label": "2. Testimonial slider", "tag": "CHANGED - 6 real testimonials with logos (was Taiyo repeated 3x)"}];
+ function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  document.body.style.paddingTop='40px';
+
+  // hide the WhatsApp plugin's "invalid domain" complaint - it only appears
+  // because this preview is not served from odooimplementers.com
+  document.querySelectorAll('div,span,p').forEach(function(n){
+    if(n.children.length===0 && /invalid domain/i.test(n.textContent||'')){
+      var b=n; for(var i=0;i<3&&b.parentElement;i++){b=b.parentElement;}
+      b.style.display='none';
+    }
+  });
+
+  var bar=document.createElement('div');
+  bar.id='oi-preview-bar';
+  var t=document.createElement('span');
+  t.className='oi-t';
+  t.innerHTML='PREVIEW \u2014 not the live site. Jump to what changed:';
+  bar.appendChild(t);
+
+  CHANGES.forEach(function(c){
+   var el=document.querySelector('.elementor-element-'+c.id);
+   if(!el){return;}
+   el.classList.add('oi-changed');
+   var tag=document.createElement('div');
+   tag.className='oi-tag';
+   tag.textContent=c.tag;
+   if(getComputedStyle(el).position==='static'){el.style.position='relative';}
+   el.appendChild(tag);
+   var b=document.createElement('button');
+   b.textContent=c.label;
+   b.onclick=function(){el.scrollIntoView({behavior:'smooth',block:'start'});};
+   bar.appendChild(b);
+  });
+
+  var a=document.createElement('a');
+  a.className='oi-b'; a.href='index.html'; a.textContent='all pages';
+  bar.appendChild(a);
+  document.body.appendChild(bar);
+
+  // if the page was opened with #change, go straight there
+  if(location.hash==='#change'&&CHANGES.length){
+   var f=document.querySelector('.elementor-element-'+CHANGES[0].id);
+   if(f){setTimeout(function(){f.scrollIntoView({block:'start'});},400);}
+  }
+ });
+})();
+</script></body>
 </html>
 				</div>
 				</div>
@@ -3260,13 +3687,74 @@ body {
 </div>
 
 
-<div id="oi-preview-bar" style="position:fixed;z-index:2147483647;top:0;left:0;right:0;
-background:#743c5f;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;
-padding:8px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.25)">
-PREVIEW &mdash; not the live site. Homepage &mdash; 2 new videos + 6 real testimonials
-<a href="index.html" style="color:#fff;text-decoration:underline;margin-left:10px">all previews</a>
-</div><script>document.addEventListener('DOMContentLoaded',function(){
-document.body.style.paddingTop='34px';});</script></body>
+
+<style id="oi-preview-css">
+ #oi-preview-bar{position:fixed;z-index:2147483647;top:0;left:0;right:0;
+  background:#743c5f;color:#fff;font:600 13px/1.4 system-ui,-apple-system,sans-serif;
+  padding:7px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.3);
+  display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+ #oi-preview-bar .oi-t{opacity:.9;margin-right:4px}
+ #oi-preview-bar button,#oi-preview-bar a.oi-b{background:#fff;color:#743c5f;border:0;
+  border-radius:999px;padding:5px 13px;font:700 12px/1 system-ui,sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-block}
+ #oi-preview-bar button:hover,#oi-preview-bar a.oi-b:hover{background:#ffe9c9}
+ .oi-changed{outline:3px dashed #743c5f !important;outline-offset:10px !important;
+  border-radius:6px;scroll-margin-top:90px}
+ .oi-tag{position:absolute;transform:translateY(-100%);background:#743c5f;color:#fff;
+  font:700 11px/1 system-ui,sans-serif;padding:5px 10px;border-radius:5px 5px 0 0;
+  margin-top:-12px;z-index:9999;white-space:nowrap}
+</style>
+<script>
+(function(){
+ var CHANGES = [{"id": "69838d5", "label": "1. New videos", "tag": "CHANGED - Autoprint + Ramraj Cotton videos added"}, {"id": "dd9a1f3", "label": "2. Testimonial slider", "tag": "CHANGED - 6 real testimonials with logos (was Taiyo repeated 3x)"}];
+ function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  document.body.style.paddingTop='40px';
+
+  // hide the WhatsApp plugin's "invalid domain" complaint - it only appears
+  // because this preview is not served from odooimplementers.com
+  document.querySelectorAll('div,span,p').forEach(function(n){
+    if(n.children.length===0 && /invalid domain/i.test(n.textContent||'')){
+      var b=n; for(var i=0;i<3&&b.parentElement;i++){b=b.parentElement;}
+      b.style.display='none';
+    }
+  });
+
+  var bar=document.createElement('div');
+  bar.id='oi-preview-bar';
+  var t=document.createElement('span');
+  t.className='oi-t';
+  t.innerHTML='PREVIEW \u2014 not the live site. Jump to what changed:';
+  bar.appendChild(t);
+
+  CHANGES.forEach(function(c){
+   var el=document.querySelector('.elementor-element-'+c.id);
+   if(!el){return;}
+   el.classList.add('oi-changed');
+   var tag=document.createElement('div');
+   tag.className='oi-tag';
+   tag.textContent=c.tag;
+   if(getComputedStyle(el).position==='static'){el.style.position='relative';}
+   el.appendChild(tag);
+   var b=document.createElement('button');
+   b.textContent=c.label;
+   b.onclick=function(){el.scrollIntoView({behavior:'smooth',block:'start'});};
+   bar.appendChild(b);
+  });
+
+  var a=document.createElement('a');
+  a.className='oi-b'; a.href='index.html'; a.textContent='all pages';
+  bar.appendChild(a);
+  document.body.appendChild(bar);
+
+  // if the page was opened with #change, go straight there
+  if(location.hash==='#change'&&CHANGES.length){
+   var f=document.querySelector('.elementor-element-'+CHANGES[0].id);
+   if(f){setTimeout(function(){f.scrollIntoView({block:'start'});},400);}
+  }
+ });
+})();
+</script></body>
 </html>
 				</div>
 				</div>
@@ -5857,11 +6345,72 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.odooimplementers.com\
 				fetchpriority="high"
 			/>
 		</aside>
-		<div id="oi-preview-bar" style="position:fixed;z-index:2147483647;top:0;left:0;right:0;
-background:#743c5f;color:#fff;font:600 13px/1.5 system-ui,-apple-system,sans-serif;
-padding:8px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.25)">
-PREVIEW &mdash; not the live site. Homepage &mdash; 2 new videos + 6 real testimonials
-<a href="index.html" style="color:#fff;text-decoration:underline;margin-left:10px">all previews</a>
-</div><script>document.addEventListener('DOMContentLoaded',function(){
-document.body.style.paddingTop='34px';});</script></body>
+		
+<style id="oi-preview-css">
+ #oi-preview-bar{position:fixed;z-index:2147483647;top:0;left:0;right:0;
+  background:#743c5f;color:#fff;font:600 13px/1.4 system-ui,-apple-system,sans-serif;
+  padding:7px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.3);
+  display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+ #oi-preview-bar .oi-t{opacity:.9;margin-right:4px}
+ #oi-preview-bar button,#oi-preview-bar a.oi-b{background:#fff;color:#743c5f;border:0;
+  border-radius:999px;padding:5px 13px;font:700 12px/1 system-ui,sans-serif;cursor:pointer;
+  text-decoration:none;display:inline-block}
+ #oi-preview-bar button:hover,#oi-preview-bar a.oi-b:hover{background:#ffe9c9}
+ .oi-changed{outline:3px dashed #743c5f !important;outline-offset:10px !important;
+  border-radius:6px;scroll-margin-top:90px}
+ .oi-tag{position:absolute;transform:translateY(-100%);background:#743c5f;color:#fff;
+  font:700 11px/1 system-ui,sans-serif;padding:5px 10px;border-radius:5px 5px 0 0;
+  margin-top:-12px;z-index:9999;white-space:nowrap}
+</style>
+<script>
+(function(){
+ var CHANGES = [{"id": "69838d5", "label": "1. New videos", "tag": "CHANGED - Autoprint + Ramraj Cotton videos added"}, {"id": "dd9a1f3", "label": "2. Testimonial slider", "tag": "CHANGED - 6 real testimonials with logos (was Taiyo repeated 3x)"}];
+ function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  document.body.style.paddingTop='40px';
+
+  // hide the WhatsApp plugin's "invalid domain" complaint - it only appears
+  // because this preview is not served from odooimplementers.com
+  document.querySelectorAll('div,span,p').forEach(function(n){
+    if(n.children.length===0 && /invalid domain/i.test(n.textContent||'')){
+      var b=n; for(var i=0;i<3&&b.parentElement;i++){b=b.parentElement;}
+      b.style.display='none';
+    }
+  });
+
+  var bar=document.createElement('div');
+  bar.id='oi-preview-bar';
+  var t=document.createElement('span');
+  t.className='oi-t';
+  t.innerHTML='PREVIEW \u2014 not the live site. Jump to what changed:';
+  bar.appendChild(t);
+
+  CHANGES.forEach(function(c){
+   var el=document.querySelector('.elementor-element-'+c.id);
+   if(!el){return;}
+   el.classList.add('oi-changed');
+   var tag=document.createElement('div');
+   tag.className='oi-tag';
+   tag.textContent=c.tag;
+   if(getComputedStyle(el).position==='static'){el.style.position='relative';}
+   el.appendChild(tag);
+   var b=document.createElement('button');
+   b.textContent=c.label;
+   b.onclick=function(){el.scrollIntoView({behavior:'smooth',block:'start'});};
+   bar.appendChild(b);
+  });
+
+  var a=document.createElement('a');
+  a.className='oi-b'; a.href='index.html'; a.textContent='all pages';
+  bar.appendChild(a);
+  document.body.appendChild(bar);
+
+  // if the page was opened with #change, go straight there
+  if(location.hash==='#change'&&CHANGES.length){
+   var f=document.querySelector('.elementor-element-'+CHANGES[0].id);
+   if(f){setTimeout(function(){f.scrollIntoView({block:'start'});},400);}
+  }
+ });
+})();
+</script></body>
 </html>
